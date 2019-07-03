@@ -1,9 +1,9 @@
 package generics;
 
-class Locker<T> {
+class FirstLocker<T> {
 
     private T content;
-    public Locker( ) {
+    public FirstLocker( ) {
         store(null);
     }
     public T retrieve( ) {
@@ -14,11 +14,11 @@ class Locker<T> {
     }
 
     public static void main(String[] args) {
-        Locker<String> lockerOne; //content is set to string
-        Locker<Integer> lockerTwo; //content is set to Integer
+        FirstLocker<String> lockerOne; //content is set to string
+        FirstLocker<Integer> lockerTwo; //content is set to Integer
 
-        lockerOne = new Locker<String>( ); //create lockers
-        lockerTwo = new Locker<Integer>( );
+        lockerOne = new FirstLocker<String>( ); //create lockers
+        lockerTwo = new FirstLocker<Integer>( );
 
         lockerOne.store("Hello"); //store an appropriate
         lockerTwo.store(new Integer(100)); //content

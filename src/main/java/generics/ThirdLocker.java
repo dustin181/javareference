@@ -1,6 +1,6 @@
 package generics;
 
-public class ThirdLocker<T> {
+class ThirdLocker<T> {
     private T content1;
     private T content2;
 
