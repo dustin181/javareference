@@ -1,6 +1,8 @@
 package lambdas;
 
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,13 +13,21 @@ public class Person {
     private String lastName;
     private LocalDate dob;
     private Gender gender;
+    private int age;
 
     public Person(String firstName, String lastName, LocalDate dob, Gender gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
         this.gender = gender;
+        this.age = getAge();
     }
+
+    public int getAge(){
+
+        int elapsedYears = (int)ChronoUnit.YEARS.between(LocalDate.now(), this.dob);
+        return elapsedYears;
+    };
 
     public String getFirstName() {
         return firstName;
@@ -49,6 +59,10 @@ public class Person {
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public int ageDifference(final Person other) {
+        return age - other.age;
     }
 
     @Override
