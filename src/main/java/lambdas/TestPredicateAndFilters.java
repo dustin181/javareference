@@ -1,5 +1,6 @@
 package lambdas;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +9,11 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class TestPredicateAndFilters {
+
+    @FunctionalInterface
+    public interface Predicate<T>{
+        boolean test(T t);
+    }
 
     public static void main(String[] args) {
 
@@ -37,14 +43,14 @@ public class TestPredicateAndFilters {
         final Predicate<String> startsWithN = name -> name.startsWith("N");
         final Predicate<String> startsWithB = name -> name.startsWith("B");
 
-        final long countEditorsStartN =
-                editors.stream()
-                        .filter(startsWithN)
-                        .count();
-        final long countComradesStartN =
-                comrades.stream()
-                        .filter(startsWithN)
-                        .count();
+//        final long countEditorsStartN =
+//                editors.stream()
+//                        .filter(startsWithN)
+//                        .count();
+//        final long countComradesStartN =
+//                comrades.stream()
+//                        .filter(startsWithN)
+//                        .count();
 
 //        final long countFriendsStartN =
 //                friends.stream()
@@ -58,14 +64,23 @@ public class TestPredicateAndFilters {
         final Function<String, Predicate<String>> startsWithLetter =
                 letter -> name -> name.startsWith(letter);
 
-        final long countFriendsStartN =
-                friends.stream()
-                        .filter(startsWithLetter.apply("N"))
-                        .count();
-        final long countFriendsStartB =
-                friends.stream()
-                        .filter(startsWithLetter.apply("B"))
-                        .count();
+//        final long countFriendsStartN =
+//                friends.stream()
+//                        .filter(startsWithLetter.apply("N"))
+//                        .count();
+//        final long countFriendsStartB =
+//                friends.stream()
+//                        .filter(startsWithLetter.apply("B"))
+//                        .count();
+
+//        Predicate<Apple> notRedApple = redApple.negate();
+//
+//        Predicate<Apple> redAndHeavyApple =
+//                redApple.and(a -> a.getWeight() > 150);
+//
+//        Predicate<Apple> redAndHeavyAppleOrGreen =
+//                redApple.and(a -> a.getWeight() > 150)
+//                        .or(a -> "green".equals(a.getColor()));
 
     }
 
@@ -81,6 +96,16 @@ public class TestPredicateAndFilters {
                         .findFirst();
         System.out.println(String.format("A name starting with %s: %s",
                 startingLetter, foundName.orElse("No name found")));
+    }
+
+    public static <T> List<T> filter(List<T> list, Predicate<T> p) {
+        List<T> results = new ArrayList<>();
+        for(T s: list){
+            if(p.test(s)){
+                results.add(s);
+            }
+        }
+        return results;
     }
 
 

@@ -2,6 +2,7 @@ package lambdas;
 
 import java.sql.SQLOutput;
 import java.util.*;
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -52,6 +53,21 @@ public class TestComparators {
                         .collect(
                                 groupingBy(Person::getAge, mapping(Person::getFirstName, toList())));
         System.out.println("People grouped by age: " + nameOfPeopleByAge);
+
+        Comparator<Person> byAge2 = Comparator.comparing(Person::getAge);
+        Map<Character, Optional<Person>> oldestPersonOfEachLetter =
+                people.stream()
+                        .collect(groupingBy(person -> person.getFirstName().charAt(0),
+                                reducing(BinaryOperator.maxBy(byAge2))));
+        System.out.println("Oldest person of each letter:");
+        System.out.println(oldestPersonOfEachLetter);
+
+//        Comparator<Apple> byWeight =
+//                (Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight());
+
+//        inventory.sort(comparing(Apple::getWeight)
+//                .reversed()
+//                .thenComparing(Apple::getCountry));
     }
 
     public static void printPeople(

@@ -52,6 +52,12 @@ public class TestMethodReferences {
         BiFunction<String,String,String> func5 = String::concat;
         System.out.println(func5.apply(greeting5, name5));
 
+//        List<String> str = Arrays.asList("a","b","A","B");
+//        str.sort((s1, s2) -> s1.compareToIgnoreCase(s2));
+
+        List<String> str = Arrays.asList("a","b","A","B");
+        str.sort(String::compareToIgnoreCase);
+
     }
 
 
