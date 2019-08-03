@@ -1,77 +1,50 @@
 package multithreading;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 public class CyclicBarrierDemo {
 
-    private CyclicBarrier cyclicBarrier;
-    private List<List<Integer>> partialResults = Collections.synchronizedList(new ArrayList<>());
-    private Random random = new Random();
-    private int NUM_PARTIAL_RESULTS;
-    private int NUM_WORKERS;
-
-    private void runSimulation(int numWorkers, int numberOfPartialResults) {
-        NUM_PARTIAL_RESULTS = numberOfPartialResults;
-        NUM_WORKERS = numWorkers;
-
-        cyclicBarrier = new CyclicBarrier(NUM_WORKERS, new AggregatorThread());
-        System.out.println("Spawning " + NUM_WORKERS + " worker threads to compute " + NUM_PARTIAL_RESULTS + " partial results each");
-        for (int i = 0; i < NUM_WORKERS; i++) {
-            Thread worker = new Thread(new NumberCruncherThread());
-            worker.setName("Thread " + i);
-            worker.start();
-        }
-    }
-
-    class NumberCruncherThread implements Runnable {
-
-        @Override
-        public void run() {
-            String thisThreadName = Thread.currentThread().getName();
-            List<Integer> partialResult = new ArrayList<>();
-            for (int i = 0; i < NUM_PARTIAL_RESULTS; i++) {
-                Integer num = random.nextInt(10);
-                System.out.println(thisThreadName + ": Crunching some numbers! Final result - " + num);
-                partialResult.add(num);
-            }
-            partialResults.add(partialResult);
-            try {
-                System.out.println(thisThreadName + " waiting for others to reach barrier.");
-                cyclicBarrier.await();
-            } catch (InterruptedException | BrokenBarrierException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    class AggregatorThread implements Runnable {
-
-        @Override
-        public void run() {
-            String thisThreadName = Thread.currentThread().getName();
-            System.out.println(thisThreadName + ": Computing final sum of " + NUM_WORKERS + " workers, having " + NUM_PARTIAL_RESULTS + " results each.");
-            int sum = 0;
-            for (List<Integer> threadResult : partialResults) {
-                System.out.print("Adding ");
-                for (Integer partialResult : threadResult) {
-                    System.out.print(partialResult + " ");
-                    sum += partialResult;
-                }
-                System.out.println();
-            }
-            System.out.println(Thread.currentThread().getName() + ": Final result = " + sum);
-        }
-
-    }
-
     public static void main(String[] args) {
-        CyclicBarrierDemo play = new CyclicBarrierDemo();
-        play.runSimulation(5, 3);
-    }
+        CyclicBarrier cb = new CyclicBarrier(3, new AfterAction());
+        // Initializing three threads to read 3 different files.
+        Thread t1 = new Thread(new TxtReader("thread-1", "file-1", cb));
+        Thread t2 = new Thread(new TxtReader("thread-2", "file-2", cb));
+        Thread t3 = new Thread(new TxtReader("thread-3", "file-3", cb));
+        t1.start();
+        t2.start();
+        t3.start();
 
+        System.out.println("Done ");
+    }
+}
+
+class TxtReader implements Runnable {
+    private String threadName;
+    private String fileName;
+    private CyclicBarrier cb;
+    TxtReader(String threadName, String fileName, CyclicBarrier cb){
+        this.threadName = threadName;
+        this.fileName = fileName;
+        this.cb = cb;
+    }
+    @Override
+    public void run() {
+        System.out.println("Reading file " + fileName + " thread " + threadName);
+        try{
+            // calling await so the current thread suspends
+            cb.await();
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        } catch (BrokenBarrierException e) {
+            System.out.println(e);
+        }
+    }
+}
+
+class AfterAction implements Runnable {
+    @Override
+    public void run() {
+        System.out.println("In after action class, start further processing as all files are read");
+    }
 }
