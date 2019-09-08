@@ -3,6 +3,7 @@ import java.util.List;
 
 public class performance {
 
+    //cause a memory leak
     public static void main(String[] args) {
         List<String> l = new ArrayList<String>();
         for (int i = 0; i < 100000000; i++) {
