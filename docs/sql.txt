@@ -1,0 +1,498 @@
+select *
+from employees
+where department like 'F%nitu%';
+
+select *
+from employees
+where department like '%nitu%';
+
+select *
+from employees
+where salary > 100000;
+
+select *
+from employees
+where salary = 100000;
+
+// selects all employees because 1 = 1 always
+select *
+from employees
+where 1 = 1;
+
+select *
+from employees
+where department = 'Clothing'
+and salary > 90000
+and region_id = 2;
+
+select *
+from employees
+where department = 'Clothing'
+or salary > 90000;
+
+select *
+from employees
+where salary < 40000
+and (department = 'Clothing'
+or department = 'Pharmacy');
+
+//all 3 of these do the same thing
+select *
+from employees
+where not department = 'Sports';
+
+//all 3 of these do the same thing
+select *
+from employees
+where not department != 'Sports';
+
+//all 3 of these do the same thing
+select *
+from employees
+where not department <> 'Sports';
+
+//returns nothing because null cannot be compared to null in SQL
+select *
+from employees
+where null = null
+or null != null;
+
+//returns employees with a null email
+select *
+from employees
+where email is null;
+
+//returns employees with an email
+select *
+from employees
+where email is not null;
+
+select *
+from employees
+where department in ('Sports', 'First Aid', 'Toys', 'Garden');
+
+//this is inclusive of 80000 and 100000
+select *
+from employees
+where salary between 80000 and 100000;
+
+select distinct department
+from employees
+order by department
+limit 10;
+
+//name a column with multiple words
+select first_name, last_name, department, salary as "Yearly Salary"
+from employees;
+
+******************
+
+Functions
+
+******************
+
+select upper(first_name), lower(department)
+from employees;
+
+select first_name, length(first_name) as first_name_length
+from employees;
+
+select TRIM('    Hello There     ');
+
+//concatenate to make a new column
+select first_name ||' '|| last_name as full_name
+from employees;
+
+//employees who make more than 140000
+select first_name ||' '|| last_name as full_name, (salary > 140000) as is_highly_paid
+from employees
+order by is_highly_paid desc;
+
+select department, (department like '%oth%')
+from employees;
+
+//start extracting from position 1 for a total of 4 characters
+select substring('This is test data' from 1 for 4);
+
+//replace text in a column
+select department, REPLACE(department, 'Clothing', 'Attire') modified_data
+from departments;
+
+//get domain name in email
+select substring(email, position('@' in email) + 1)
+from employees;
+
+//list the email or 'NONE' if it is null
+select coalesce(email, 'NONE')
+from employees;
+
+
+*****************
+
+Grouping functions
+
+*****************
+
+select max(salary)
+from employees;
+
+select min(salary)
+from employees;
+
+select avg(salary)
+from employees;
+
+select round(avg(salary))
+from employees;
+
+select count(*)
+from employees;
+
+select sum(salary)
+from employees;
+
+select department, count(*)
+from employees
+group by department;
+
+select department, count(*)
+from employees
+group by department
+order by count(*) desc;
+
+select department, sum(salary)
+from employees
+group by department
+order by sum(salary) desc;
+
+select department, count(*), sum(salary), round(avg(salary)) as avg, min(salary), max(salary)
+from employees
+group by department
+order by count(*) desc;
+
+select department, count(*), sum(salary), round(avg(salary)) as avg, min(salary), max(salary)
+from employees
+where salary > 70000
+group by department
+order by count(*) desc;
+
+select department, gender, count(*)
+from employees
+group by department, gender
+order by department;
+
+select department, count(*)
+from employees
+group by department
+having count(*) >= 35
+order by count(*) desc;
+
+select substring(email, position('@' in email) + 1) as domain_names, count(*)
+from employees
+where email is not null
+group by domain_names
+order by count(*) desc;
+
+**********************
+Subqueries
+**********************
+
+select first_name, last_name, department from employees
+where department in (select department from departments where division = 'Electronics');
+
+select first_name, salary
+from employees
+where salary > (select round(avg(salary)) from employees)
+
+select * from employees
+where salary > 130000 
+and region_id in (select region_id from regions
+where country in ('Asia','Canada'));
+
+select first_name, department, 
+(select max(salary) from employees) - salary as below_max_salary
+from employees
+where region_id in (select region_id from regions
+where country in ('Asia','Canada'));
+
+select * from employees
+where department in (select department from departments where division = 'Kids') and
+hire_date > all(select hire_date from employees where department = 'Maintenance');
+
+select salary, count(*) from employees
+group by salary
+order by count(*) desc, salary desc;
+
+//use something like this as a subquery when select distinct doesnt work
+select min(id), name
+from dupes
+group by name
+
+//find average salary after excluding min and max
+select(round(avg(salary)))
+from employees
+where salary not in (
+(select min(salary) from employees),
+(select max(salary) from employees)
+);
+
+**********************
+Case Clause
+**********************
+
+select first_name, salary, 
+case
+	when salary < 100000 then 'UNDERPAID'
+	when salary >= 100000  and salary <= 160000 then 'PAID WELL'
+	when salary > 160000 then 'EXECUTIVE'
+	else 'UNPAID'
+end as category
+from employees
+order by salary desc;
+
+select category, count(category) from (
+select first_name, salary, 
+case
+	when salary < 100000 then 'UNDERPAID'
+	when salary >= 100000  and salary <= 160000 then 'PAID WELL'
+	when salary > 160000 then 'EXECUTIVE'
+	else 'UNPAID'
+end as category
+from employees
+order by salary desc
+) a
+group by category;
+
+
+//use case statement to sum up conditions
+select sum(case when salary < 100000 then 1 else 0 end) as under_paid,
+sum( case when salary > 100000 and salary < 150000 then 1 else 0 end) as paid_well,
+sum ( case when salary > 150000 then 1 else 0 end) as executive
+from employees;
+
+
+**********************
+Correlated Subquery - a query nested inside of another that uses values from the outer query
+**********************
+
+//find employees that make more than their departmental avg
+select first_name, salary
+from employees e1
+where salary > (select round(avg(salary))
+		from employees e2 where e1.department = e2.department)
+
+//show salaries in comparison to department average salary
+select first_name, department, salary,
+(select round(avg(salary))
+		from employees e2 where e1.department = e2.department) as avg_department_salary
+from employees e1;
+
+select department, (select max(salary) from employees where department = d.department)
+from departments d
+where 38 < (select count(*)
+		   from employees e
+		   where d.department = e.department);
+
+select department, (select count(*) from employees where department = d.department) as employee_count
+from departments d
+where 38 < (select count(*)
+		   from employees e
+		   where d.department = e.department)
+order by employee_count desc;
+
+select department, count(*)
+from employees e1
+where 38 < (select count(*)
+		   from employees e2
+		   where e1.department = e2.department)
+group by department
+order by count(*) desc;
+
+//min and max salary by department
+select department, first_name, salary FROM (
+	select department, first_name, salary, 
+(select max(salary) from employees e2 where e1.department = e2.department) as max_by_department,
+(select min(salary) from employees e2 where e1.department = e2.department) as min_by_department
+from employees e1
+order by department 
+) a
+where salary in (max_by_department, min_by_department);
+
+//sort by first column
+order by 1
+
+****************
+
+Joins
+
+******************
+
+
+select first_name, country
+from employees e 
+inner join regions r
+on e.region_id = r.region_id;
+
+select first_name, email, division, country
+from employees e inner join departments d
+on e.department = d.department
+inner join regions r
+on e.region_id = r.region_id;
+
+//give me all departments in the employees table regardless if they exist in the departments table
+//left join means give preference to the table on the left (employees).  Departments is on the right.
+select distinct e.department as employees_department, d.department as departments_department
+from employees e left join departments d
+on e.department = d.department
+order by departments_department;
+
+//outer join takes anything that has at least one entry in either table.  The other side can be null.
+select distinct e.department as employees_department, d.department as departments_department
+from employees e full outer join departments d
+on e.department = d.department;
+
+//combine departments from both tables.  Use "union all" if you dont want to eliminate duplicates
+select department from employees
+union
+select department from departments;
+
+//all departments that are found in the employees table but are not found in the departments table;
+select distinct department
+from employees
+except
+select department
+from departments;
+
+//union all plus a total category at the end to count up all the employees after counting them by department
+select department, count(*) from employees
+group by department
+union all
+select 'Total', count(*)
+from employees;
+
+//needed parentheses on first query in order to use limit next to union
+(select first_name, department, hire_date, country
+from employees e inner join regions r
+on e.region_id = r.region_id
+where hire_date = (select min(hire_date) from employees)
+limit 1)
+union all	  
+select first_name, department, hire_date, country
+from employees e inner join regions r
+on e.region_id = r.region_id
+where hire_date = (select max(hire_date) from employees);
+
+//90 day moving windows of total salary using a correlated subquery
+select hire_date, salary,
+(select sum(salary) from employees e2
+where e2.hire_date between e.hire_date - 90 and e.hire_date) as spending_pattern
+from employees e
+order by hire_date;
+
+create view v_employee_information as
+select first_name, email, e.department, salary, division, region, country
+from employees e, departments d, regions r
+where e.department = d.department
+and e.region_id = r.region_id;
+
+
+********************
+
+Window Functions
+
+********************
+
+//easier way to count employees in department
+select first_name, department, count(*) over(partition by department)
+from employees;
+
+//count total number of employees that work in department and that work in region
+select first_name, department, 
+count(*) over(partition by department) dept_count, 
+count(*) over(partition by region_id) region_count
+from employees;
+
+//running total of salaries by hire date
+select first_name, hire_date, salary, 
+sum(salary) over(order by hire_date) as running_total_of_salaries
+from employees;
+
+//running total of salaries by hire date and by department
+select first_name, hire_date, department, salary, 
+sum(salary) over(partition by department order by hire_date) as running_total_of_salaries
+from employees;
+
+//running total of salaries by hire date
+select first_name, hire_date, salary, 
+sum(salary) over(order by hire_date range between unbounded preceding 
+				 and current row) as running_total_of_salaries
+from employees;
+
+//sum current row with previous row
+select first_name, hire_date, department, salary,
+sum(salary) over(order by hire_date rows between 1 preceding and current row)
+from employees;
+
+//rank salaries by department
+select first_name, hire_date, department, salary,
+rank() over(partition by department order by salary desc)
+from employees;
+
+
+//8th highest salary in every department
+select * from (
+	select first_name, email, department, salary,
+rank() over(partition by department order by salary desc)
+from employees) a
+where rank = 8;
+
+//split into 5 buckets based on percentile.  Quintile in this case.
+select first_name, email, department, salary,
+ntile(5) over(partition by department order by salary desc)
+from employees;
+
+//first value of each department
+select first_name, email, department, salary,
+first_value(salary) over(partition by department order by salary desc)
+from employees;
+
+//4th value of each department
+select first_name, email, department, salary,
+nth_value(salary, 4) over(partition by department order by salary desc)
+from employees;
+
+//get next salary in the column
+select first_name, last_name, salary,
+lead(salary) over() next_salary
+from employees;
+
+//get previous salary in the column
+select first_name, last_name, salary,
+lag(salary) over() previous_salary
+from employees;
+
+//list next higher salary
+select department, last_name, salary,
+lag(salary) over (order by salary desc) closest_higher_salary
+from employees;
+
+//show three different group bys in one table
+select continent, country, city, sum(units_sold)
+from sales
+group by grouping sets(continent, country, city);
+
+
+//the empty parentheses adds the total of all units sold as first row
+select continent, country, city, sum(units_sold)
+from sales
+group by grouping sets(continent, country, city, ());
+
+//large table that shows variations of the group by options (group by 3 columns and then 2 columns and then 1 column)
+select continent, country, city, sum(units_sold)
+from sales
+group by rollup(continent, country, city);
+
+//even more group by combinations than a rollup
+select continent, country, city, sum(units_sold)
+from sales
+group by cube(continent, country, city);
