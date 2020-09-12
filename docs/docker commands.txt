@@ -10,12 +10,33 @@ RUN useradd application
 USER application
 CMD apachectl -DFOREGROUND
 
-docker images
-docker build --tag centos_apache:v1 .
 docker run --name centos-test -d centos_apache:v1
 docker run -d -p 9090:80 --name centos-yescmd -d centos_apache:v2
-docker rm -f centos-yescmd
-docker exec -ti containername bash
-docker logs containername
+docker run -d -p 9090:80 --name centos-yescmd -d centos_apache:v2
+docker ps -a
+docker images
+docker build --tag centos_apache:v1 .
 docker build build --tag centos_apache:v1 --build-arg user=username .
+
+docker rm -f centos-yescmd
+docker rm -f $(docker ps -a -q)
+docker exec -ti containername bash
+docker inspect containername
+
+docker logs containername
+docker info
+
+docker run -d --name mysql -e "MYSQL_ROOT_PASSWORD=12345678" mysql:5.7
+docker run -d p 3306:3306 --name mysql -e "MYSQL_ROOT_PASSWORD=12345678" -e MYSQL_DATABASE=docker_db -e MYSQL_USER=docker_user -e MYSQL_PASSWORD=1234 mysql:5.7
+docker logs -f 8322139adf04
+docker inspect 8322139adf04|Select-String -Pattern gateway (powershell's answer for grep)
+
+docker run -d -v /mnt/mysql:/var/lib/mysql --name mysql -e "MYSQL_ROOT_PASSWORD=12345678" mysql:5.7
+docker run -d -v hostpath:locationInsideContainer --name mysql -e "MYSQL_ROOT_PASSWORD=12345678" mysql:5.7
+docker run -d -v mysql_volume:/var/lib/mysql --name mysql -e "MYSQL_ROOT_PASSWORD=12345678" mysql:5.7
+
+
+
+
+
 
