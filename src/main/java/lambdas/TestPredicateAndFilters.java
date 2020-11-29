@@ -17,6 +17,31 @@ public class TestPredicateAndFilters {
 
     public static void main(String[] args) {
 
+//        @Test
+//        public void whenFilterListWithCollectionOfPredicatesUsingAnd_thenSuccess(){
+//            List<Predicate<String>> allPredicates = new ArrayList<Predicate<String>>();
+//            allPredicates.add(str -> str.startsWith("A"));
+//            allPredicates.add(str -> str.contains("d"));
+//            allPredicates.add(str -> str.length() > 4);
+//
+//            List<String> result = names.stream()
+//                    .filter(allPredicates.stream().reduce(x->true, Predicate::and))
+//                    .collect(Collectors.toList());
+//
+//            assertEquals(1, result.size());
+//            assertThat(result, contains("Alexander"));
+
+
+//        @Test
+//        public void whenFilterListWithCollectionOfPredicatesUsingOr_thenSuccess(){
+//            List<String> result = names.stream()
+//                    .filter(allPredicates.stream().reduce(x->false, Predicate::or))
+//                    .collect(Collectors.toList());
+//
+//            assertEquals(2, result.size());
+//            assertThat(result, contains("Adam","Alexander"));
+        }
+
         final List<String> friends =
                 Arrays.asList("Brian", "Nate", "Neal", "Raju", "Sara", "Scott");
         final List<String> editors =
