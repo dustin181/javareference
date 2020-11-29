@@ -40,7 +40,7 @@ public class TestPredicateAndFilters {
 //
 //            assertEquals(2, result.size());
 //            assertThat(result, contains("Adam","Alexander"));
-        }
+//        }
 
         final List<String> friends =
                 Arrays.asList("Brian", "Nate", "Neal", "Raju", "Sara", "Scott");
