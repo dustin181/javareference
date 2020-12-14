@@ -1,0 +1,55 @@
+#Set an environment variable
+export VAR="value"
+
+#Remove an environment variable
+unset VAR
+
+#find file
+find -name /sbin makedev
+
+#find file and ignore case
+find -iname /sbin makedev
+
+#find based on size (1 Meg or greater)
+find . -size +1M
+
+#sort commands
+sort file
+sort -u file --> unique results
+sort -r file --> reverse order
+sort -k2 file --> sort by second field/key
+
+#tar examples
+tar zcf zipname.tgz file/dir --> compress file
+tar ztvf zipname.tgz --> list files in archive
+tar xvzf zipname.tgz --> extract zip
+
+#combine stderr and stdout
+ls files.txt not-here > out.both 2>&1
+
+#sort an existing file
+sort < file.txt
+
+#sort an existing file and save to new file
+sort < file.txt > sorted_files.txt
+
+#find text in binary files
+strings file
+
+#search for text in file
+grep -i word file --> search ignoring case
+grep -c word file --> count occurrences in a file
+grep -n word file --> Precede output with line numbers
+grep -v word file --> print lines that don't match
+
+#Strip out comments and blank lines
+grep -Ev '^#|^$' file
+
+#reuse commands
+!! --> repeat last command
+!<String> --> !d runs the last comand that started with d
+!* --> reuse arguments
+!$ --> repeat last item from previous command
+
+
+
