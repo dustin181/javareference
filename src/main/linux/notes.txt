@@ -51,5 +51,14 @@ grep -Ev '^#|^$' file
 !* --> reuse arguments
 !$ --> repeat last item from previous command
 
+#background and foreground
+command & --> starts the process in the background
+ctrl-z --> suspends foreground process
+jobs [%num] list jobs
+bg [%num] --> background a suspended process
+fg [%num] --> foreground a background process
+kill process/pid --> by job number or pid
+
+
 
 
