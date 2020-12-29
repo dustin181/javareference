@@ -45,7 +45,6 @@ public class Payslip implements ExportableDocument {
     @Override
     public byte[] toPdf() {
         List<String> list = Arrays.asList("ana","are");
-        list.re
 
         throw new UnsupportedOperationException();
     }
