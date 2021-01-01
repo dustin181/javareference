@@ -1,0 +1,29 @@
+1  groups
+2  docker info
+3  docker --help
+4  docker system info
+5  docker system --help
+6  docker image --help
+7  docker container --help
+8  docker run hello-world
+9  docker run --name web-server -d -p 8080:80 nginx:1.12
+10  curl localhost:8080
+11  docker ps
+12  docker ps -a
+13  docker stop web-server
+14  docker ps
+15  docker start web-server
+16  docker logs web-server
+17  docker exec -it web-server /bin/bash
+18  docker exec web-server ls /etc/nginx
+19  docker stop web-server
+20  docker search "Microsoft .NET Core"
+21  sudo yum -y install git
+22  git clone https://github.com/cloudacademy/flask-content-advisor.git
+23  cd flask-content-advisor
+24  vi Dockerfile
+25  cat Dockerfile
+26  docker build -t flask-content-advisor:latest .
+27  curl ipecho.net/plain; echo
+28  docker run --name advisor -p 80:5000 flask-content-advisor
+29  history
