@@ -1,3 +1,8 @@
+https://spring.io/guides/topicals/spring-boot-docker/
+
+*******************************************************
+
+
 1  groups
 2  docker info
 3  docker --help
@@ -27,3 +32,10 @@
 27  curl ipecho.net/plain; echo
 28  docker run --name advisor -p 80:5000 flask-content-advisor
 29  history
+
+******************
+#delete everything (containers, images, networks)
+docker system prune
+
+docker logs <container id>
+

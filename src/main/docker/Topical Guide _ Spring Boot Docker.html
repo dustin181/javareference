@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="width=device-width,initial-scale=1,shrink-to-fit=no" id="Viewport" name="viewport">
+<link rel="stylesheet" type="text/css" media="all" href="./Topical Guide _ Spring Boot Docker_files/main-7e243b23dcff3a708beb788d4cb583f3.css">
+<link href="https://spring.io/images/favicon-9d25009f65637a49ac8d91eb1cf7b75e.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+<meta name="description" content="Level up your Java code and explore what Spring can do for you.">
+<link rel="manifest" href="https://spring.io/manifest-0e3065c2bbd1ef7a320e80861393f1a6.json">
+<meta name="theme-color" content="#6db33f">
+<meta name="apple-mobile-web-app-title" content="spring">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Topical Guide | Spring Boot Docker</title>
+<link rel="stylesheet" type="text/css" href="./Topical Guide _ Spring Boot Docker_files/guide-f8efb1c8a31441954f373af0c54c58e9.css">
+
+<meta property="og:title" content="Spring Boot Docker">
+<meta property="og:description" content="this topical is designed to be read and comprehended in under an hour, it provides broad coverage of a topic that is possibly nuanced or requires deeper understanding than you would get from a getting started guide">
+
+<script type="text/javascript" async="" src="./Topical Guide _ Spring Boot Docker_files/analytics.js.download"></script><script async="" src="./Topical Guide _ Spring Boot Docker_files/gtm.js.download"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZM7GF6');</script>
+
+<script src="./Topical Guide _ Spring Boot Docker_files/run_prettify-b8b4abd61389be25d5219fffabfab796.js.download"></script><link rel="stylesheet" type="text/css" href="./Topical Guide _ Spring Boot Docker_files/prettify.css">
+<link id="mktoForms2BaseStyle" rel="stylesheet" type="text/css" href="./Topical Guide _ Spring Boot Docker_files/forms2.css"><link id="mktoForms2ThemeStyle" rel="stylesheet" type="text/css" href="./Topical Guide _ Spring Boot Docker_files/forms2-theme-simple.css"></head>
+<body id="guide" class=" light">
+<script src="./Topical Guide _ Spring Boot Docker_files/theme-f367e6936a70ad2e6b3dcb91c6673a9f.js.download"></script>
+<header>
+<nav id="nav">
+<div id="nav-inner" class="container flex jc-between ai-center">
+<a id="logo-focus" tabindex="1" href="https://spring.io/">
+<img id="springlogo" class="block" src="./Topical Guide _ Spring Boot Docker_files/spring-logo-9146a4d3298760c2e7e49595184e1975.svg" alt="Spring">
+</a>
+<ul id="nav-items" class="flex jc-between">
+<li><div class="has-menu" id="why-hov"><span tabindex="2">Why Spring</span><div class="nav-arrow"></div></div></li>
+<li><div class="has-menu" id="learn-hov"><span tabindex="11">Learn</span><div class="nav-arrow"></div></div></li>
+<li><div class="has-menu" id="projects-hov"><span tabindex="17">Projects</span><div class="nav-arrow"></div></div></li>
+<li><a class="z-5 rel" href="https://spring.io/training" tabindex="30">Training</a></li>
+<li><a class="z-5 rel" href="https://spring.io/support" tabindex="31">Support</a></li>
+<li><a class="has-menu" id="community-hov"><span tabindex="32">Community</span><div class="nav-arrow"></div></a></li>
+<li>
+<a id="switch-theme" class="theme-switch">
+<span>
+<i class="fas fa-moon"></i>
+<i class="fas fa-sun"></i>
+</span>
+</a>
+</li>
+
+</ul>
+</div>
+<div id="dropdown-menus" class="container rel">
+<div id="scope" class="abs rad-5"></div>
+<div id="why-items" class="drop-menu">
+<div id="why-target" class="drop-target"></div>
+<ul>
+<li><a tabindex="3" href="https://spring.io/why-spring">Overview</a></li>
+<li><a tabindex="4" href="https://spring.io/microservices">Microservices</a></li>
+<li><a tabindex="5" href="https://spring.io/reactive">Reactive</a></li>
+<li><a tabindex="6" href="https://spring.io/event-driven">Event Driven</a></li>
+<li><a tabindex="7" href="https://spring.io/cloud">Cloud</a></li>
+<li><a tabindex="8" href="https://spring.io/web-applications">Web Applications</a></li>
+<li><a tabindex="9" href="https://spring.io/serverless">Serverless</a></li>
+<li><a tabindex="10" href="https://spring.io/batch">Batch</a></li>
+</ul>
+</div>
+<div id="learn-items" class="drop-menu">
+<div id="learn-target" class="drop-target"></div>
+<ul>
+<li><a tabindex="12" href="https://spring.io/learn">Overview</a></li>
+<li><a tabindex="13" href="https://spring.io/quickstart">Quickstart</a></li>
+<li><a tabindex="14" href="https://spring.io/guides">Guides</a></li>
+
+<li><a tabindex="16" href="https://spring.io/blog">Blog</a></li>
+</ul>
+</div>
+<div id="project-items" class="drop-menu">
+<div id="project-target" class="drop-target"></div>
+<ul>
+<li><a tabindex="18" href="https://spring.io/projects">Overview</a></li>
+<li><a tabindex="19" href="https://spring.io/projects/spring-boot">Spring Boot</a></li>
+<li><a tabindex="20" href="https://spring.io/projects/spring-framework">Spring Framework</a></li>
+<li><a tabindex="21" href="https://spring.io/projects/spring-cloud">Spring Cloud</a></li>
+<li><a tabindex="22" href="https://spring.io/projects/spring-cloud-dataflow">Spring Cloud Data Flow</a></li>
+<li><a tabindex="23" href="https://spring.io/projects/spring-data">Spring Data</a></li>
+<li><a tabindex="24" href="https://spring.io/projects/spring-integration">Spring Integration</a></li>
+<li><a tabindex="25" href="https://spring.io/projects/spring-batch">Spring Batch</a></li>
+<li><a tabindex="26" href="https://spring.io/projects/spring-security">Spring Security</a></li>
+<li><a tabindex="27" class="blue mb-2 inline-block" href="https://spring.io/projects">View all projects</a></li>
+<li class="uppercase smallest">Development Tools</li>
+<li><a tabindex="28" href="https://spring.io/tools">Spring Tools 4</a></li>
+<li><a tabindex="29" href="https://start.spring.io/">Spring Initializr <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><polyline points="15 10.94 15 15 1 15 1 1 5.06 1" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></polyline><polyline points="8.93 1 15 1 15 7.07" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></polyline><line x1="15" y1="1" x2="8" y2="8" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></line></svg></a></li>
+</ul>
+</div>
+<div id="community-items" class="drop-menu">
+<div id="community-target" class="drop-target"></div>
+<ul>
+<li><a tabindex="33" href="https://spring.io/community">Overview</a></li>
+<li><a tabindex="34" href="https://spring.io/events">Events</a></li>
+<li><a tabindex="35" href="https://spring.io/team">Team</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div id="mobile-nav-open" class="pointer">
+<div id="hamburger">
+<div class="burger-bar"></div>
+<div class="burger-bar"></div>
+<div class="burger-bar"></div>
+</div>
+<svg version="1.1" class="mobile-close pointer" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 14.6 14.6" style="enable-background:new 0 0 14.6 14.6;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#000000;stroke-widdata-th-3;stroke-miterlimit:10;}</style><title>close</title><line class="st0" x1="1.5" y1="1.5" x2="13.1" y2="13.1"></line><line class="st0" x1="13.1" y1="1.5" x2="1.5" y2="13.1"></line></svg>
+</div>
+<nav id="mobile-nav" class="border-box rel">
+<div class="rel">
+<div id="mobile-why" class="mobile-category flex jc-between ai-center">
+<div class="mobile-title antialiased cursor-d">Why Spring</div>
+<div class="mobile-nav-arrow"></div>
+</div>
+<div id="mobile-why-items" class="mobile-expanded-category">
+<ul>
+<li><a href="https://spring.io/why-spring">Overview</a></li>
+<li><a href="https://spring.io/microservices">Microservices</a></li>
+<li><a href="https://spring.io/reactive">Reactive</a></li>
+<li><a href="https://spring.io/event-driven">Event Driven</a></li>
+<li><a href="https://spring.io/cloud">Cloud</a></li>
+<li><a href="https://spring.io/web-applications">Web Applications</a></li>
+<li><a href="https://spring.io/serverless">Serverless</a></li>
+<li><a href="https://spring.io/batch">Batch</a></li>
+</ul>
+</div>
+<div id="mobile-learn" class="mobile-category flex jc-between ai-center">
+<div class="mobile-title antialiased cursor-d">Learn</div>
+<div class="mobile-nav-arrow"></div>
+</div>
+<div id="mobile-learn-items" class="mobile-expanded-category">
+<ul>
+<li><a href="https://spring.io/learn">Overview</a></li>
+<li><a href="https://spring.io/quickstart">Quickstart</a></li>
+<li><a href="https://spring.io/guides">Guides</a></li>
+
+<li><a href="https://spring.io/blog">Blog</a></li>
+</ul>
+</div>
+<div id="mobile-projects" class="mobile-category flex jc-between ai-center">
+<div class="mobile-title antialiased cursor-d">Projects</div>
+<div class="mobile-nav-arrow"></div>
+</div>
+<div id="mobile-project-items" class="mobile-expanded-category">
+<ul>
+<li><a href="https://spring.io/projects">Overview</a></li>
+<li><a href="https://spring.io/projects/spring-boot">Spring Boot</a></li>
+<li><a href="https://spring.io/projects/spring-framework">Spring Framework</a></li>
+<li><a href="https://spring.io/projects/spring-cloud">Spring Cloud</a></li>
+<li><a href="https://spring.io/projects/spring-cloud-dataflow">Spring Cloud Data Flow</a></li>
+<li><a href="https://spring.io/projects/spring-data">Spring Data</a></li>
+<li><a href="https://spring.io/projects/spring-integration">Spring Integration</a></li>
+<li><a href="https://spring.io/projects/spring-batch">Spring Batch</a></li>
+<li><a href="https://spring.io/projects/spring-security">Spring Security</a></li>
+<li><a class="blue mb-2 inline-block" href="https://spring.io/projects">View all projects</a></li>
+<p class="uppercase smallest white">Development Tools</p>
+<li><a href="https://spring.io/tools">Spring Tools 4</a></li>
+<li><a href="https://start.spring.io/">Spring Initializr <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><polyline points="15 10.94 15 15 1 15 1 1 5.06 1" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></polyline><polyline points="8.93 1 15 1 15 7.07" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></polyline><line x1="15" y1="1" x2="8" y2="8" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></line></svg></a></li>
+</ul>
+</div>
+<a href="https://spring.io/training" class="mobile-link block"><div class="mobile-title antialiased">Training</div></a>
+<a href="https://spring.io/support" class="mobile-link block"><div class="mobile-title antialiased">Support</div></a>
+<div id="mobile-community" class="mobile-category flex jc-between ai-center">
+<div class="mobile-title antialiased cursor-d">Community</div>
+<div class="mobile-nav-arrow"></div>
+</div>
+<div id="mobile-community-items" class="mobile-expanded-category">
+<ul>
+<li><a href="https://spring.io/community">Overview</a></li>
+<li><a href="https://spring.io/events">Events</a></li>
+<li><a href="https://spring.io/team">Team</a></li>
+</ul>
+</div>
+
+</div>
+</nav>
+<div id="search-nav" role="search">
+<div class="container relative">
+<form id="searchheaderform" action="https://spring.io/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+<input type="text" name="q" id="searchheaderinput" autocomplete="off" placeholder="Search for documentation, guides, and posts...">
+<input type="submit" value="" id="searchheadersubmit" data-disable-with="">
+</form>
+
+</div>
+</div>
+</header>
+<div>
+<div></div>
+<div class="container-fluid">
+<main class="main-body--wrapper">
+<div class="row-fluid">
+<div class="span8 mobile-left-pane">
+<div class="content--title desktop-only">Topical Guide</div>
+<a href="https://spring.io/guides" class="uppercase smallest bold backlink blue link-darken block"><div class="arrow"></div>All Guides</a>
+<article class="content--container">
+<h1 class="title">Spring Boot Docker</h1>
+<div class="article-body"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Many people are using containers to wrap their Spring Boot applications, and building containers is not a simple thing to do. This is a guide for developers of Spring Boot applications, and containers are not always a good abstraction for developers - they force you to learn about and think about very low level concerns - but you will on occasion be called on to create or use a container, so it pays to understand the building blocks. Here we aim to show you some of the choices you can make if you are faced with the prospect of needing to create your own container.</p>
+</div>
+<div class="paragraph">
+<p>We will assume that you know how to create and build a basic Spring Boot application. If you don’t, go to one of the <a href="https://spring.io/guides">Getting Started Guides</a>, for example the one on building a <a href="https://spring.io/guides/gs/rest-service/">REST Service</a>. Copy the code from there and practise with some of the ideas below.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody>
+<tr>
+<td class="icon"> <i class="fa icon-note" title="Note"></i> </td>
+<td class="content"> There is also a Getting Started Guide on <a href="https://spring.io/guides/gs/spring-boot-docker">Docker</a>, which would also be a good starting point, but it doesn’t cover the range of choices that we have here, or in as much detail. </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_basic_dockerfile">A Basic Dockerfile</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Spring Boot application is easy to convert into an executable JAR file. All the <a href="https://spring.io/guides">Getting Started Guides</a> do this, and every app that you download from <a href="https://start.spring.io/">Spring Initializr</a> will have a build step to create an executable JAR. With Maven you <code>./mvnw install</code> and with Gradle you <code>./gradlew build</code>. A basic Dockerfile to run that JAR would then look like this, at the top level of your project:</p>
+</div>
+<div class="paragraph">
+<p><code>Dockerfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">FROM openjdk</span><span class="pun">:</span><span class="lit">8</span><span class="pun">-</span><span class="pln">jdk</span><span class="pun">-</span><span class="pln">alpine
+VOLUME </span><span class="pun">/</span><span class="pln">tmp
+ARG JAR_FILE
+COPY $</span><span class="pun">{</span><span class="pln">JAR_FILE</span><span class="pun">}</span><span class="pln"> app</span><span class="pun">.</span><span class="pln">jar
+ENTRYPOINT </span><span class="pun">[</span><span class="str">"java"</span><span class="pun">,</span><span class="str">"-jar"</span><span class="pun">,</span><span class="str">"/app.jar"</span><span class="pun">]</span></code><button class="copy-button button button-small animate" data-clipboard-text="FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT [&quot;java&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>JAR_FILE</code> could be passed in as part of the <code>docker</code> command (it will be different for Maven and Gradle). E.g. for Maven:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ docker build </span><span class="pun">--</span><span class="pln">build</span><span class="pun">-</span><span class="pln">arg JAR_FILE</span><span class="pun">=</span><span class="pln">target</span><span class="com">/*.jar -t myorg/myapp .</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ docker build --build-arg JAR_FILE=target/*.jar -t myorg/myapp .">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and for Gradle:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ docker build </span><span class="pun">--</span><span class="pln">build</span><span class="pun">-</span><span class="pln">arg JAR_FILE</span><span class="pun">=</span><span class="pln">build</span><span class="pun">/</span><span class="pln">libs</span><span class="com">/*.jar -t myorg/myapp .</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ docker build --build-arg JAR_FILE=build/libs/*.jar -t myorg/myapp .">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Of course, once you have chosen a build system, you don’t need the <code>ARG</code> - you can just hard code the jar location. E.g. for Maven:</p>
+</div>
+<div class="paragraph">
+<p><code>Dockerfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">FROM openjdk</span><span class="pun">:</span><span class="lit">8</span><span class="pun">-</span><span class="pln">jdk</span><span class="pun">-</span><span class="pln">alpine
+VOLUME </span><span class="pun">/</span><span class="pln">tmp
+COPY target</span><span class="com">/*.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]</span></code><button class="copy-button button button-small animate" data-clipboard-text="FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+COPY target/*.jar app.jar
+ENTRYPOINT [&quot;java&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then we can simply build an image with</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ docker build </span><span class="pun">-</span><span class="pln">t myorg</span><span class="pun">/</span><span class="pln">myapp </span><span class="pun">.</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ docker build -t myorg/myapp .">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and run it like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ docker run </span><span class="pun">-</span><span class="pln">p </span><span class="lit">8080</span><span class="pun">:</span><span class="lit">8080</span><span class="pln"> myorg</span><span class="pun">/</span><span class="pln">myapp
+  </span><span class="pun">.</span><span class="pln">   ____          _            __ _ _
+ </span><span class="pun">/</span><span class="pln">\\ </span><span class="pun">/</span><span class="pln"> ___</span><span class="str">'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '</span><span class="pln">_ </span><span class="pun">|</span><span class="pln"> </span><span class="str">'_| | '</span><span class="pln">_ \/ _</span><span class="str">` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.0.2.RELEASE)
+
+Nov 06, 2018 2:45:16 PM org.springframework.boot.StartupInfoLogger logStarting
+INFO: Starting Application v0.1.0 on b8469cdc9b87 with PID 1 (/app.jar started by root in /)
+Nov 06, 2018 2:45:16 PM org.springframework.boot.SpringApplication logStartupProfileInfo
+...</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ docker run -p 8080:8080 myorg/myapp
+  .   ____          _            __ _ _
+ /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  &#39;  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.0.2.RELEASE)
+
+Nov 06, 2018 2:45:16 PM org.springframework.boot.StartupInfoLogger logStarting
+INFO: Starting Application v0.1.0 on b8469cdc9b87 with PID 1 (/app.jar started by root in /)
+Nov 06, 2018 2:45:16 PM org.springframework.boot.SpringApplication logStartupProfileInfo
+...">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to poke around inside the image you can open a shell in it like this (the base image does not have <code>bash</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ docker run </span><span class="pun">-</span><span class="pln">ti </span><span class="pun">--</span><span class="pln">entrypoint </span><span class="pun">/</span><span class="pln">bin</span><span class="pun">/</span><span class="pln">sh myorg</span><span class="pun">/</span><span class="pln">myapp
+</span><span class="pun">/</span><span class="pln"> </span><span class="com"># ls</span><span class="pln">
+app</span><span class="pun">.</span><span class="pln">jar  dev      home     media    proc     run      srv      tmp      </span><span class="kwd">var</span><span class="pln">
+bin      etc      lib      mnt      root     sbin     sys      usr
+</span><span class="pun">/</span><span class="pln"> </span><span class="com">#</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ docker run -ti --entrypoint /bin/sh myorg/myapp
+/ # ls
+app.jar  dev      home     media    proc     run      srv      tmp      var
+bin      etc      lib      mnt      root     sbin     sys      usr
+/ #">Copy</button></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody>
+<tr>
+<td class="icon"> <i class="fa icon-note" title="Note"></i> </td>
+<td class="content"> The alpine base container we used in the example does not have <code>bash</code>, so this is an <code>ash</code> shell. It has some of the features of <code>bash</code> but not all. </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+<p>If you have a running container and you want to peek into it, use <code>docker exec</code> you can do this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ docker run </span><span class="pun">--</span><span class="pln">name myapp </span><span class="pun">-</span><span class="pln">ti </span><span class="pun">--</span><span class="pln">entrypoint </span><span class="pun">/</span><span class="pln">bin</span><span class="pun">/</span><span class="pln">sh myorg</span><span class="pun">/</span><span class="pln">myapp
+$ docker </span><span class="kwd">exec</span><span class="pln"> </span><span class="pun">-</span><span class="pln">ti myapp </span><span class="pun">/</span><span class="pln">bin</span><span class="pun">/</span><span class="pln">sh
+</span><span class="pun">/</span><span class="pln"> </span><span class="com">#</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ docker run --name myapp -ti --entrypoint /bin/sh myorg/myapp
+$ docker exec -ti myapp /bin/sh
+/ #">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>myapp</code> is the <code>--name</code> passed to the <code>docker run</code> command. If you didn’t use <code>--name</code> then docker assigns a mnemonic name which you can scrape from the output of <code>docker ps</code>. You could also use the SHA identifier of the container instead of the name, also visible from <code>docker ps</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_entry_point">The Entry Point</h3>
+<div class="paragraph">
+<p>The <a href="https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example">exec form</a> of the Dockerfile <code>ENTRYPOINT</code> is used so that there is no shell wrapping the java process. The advantage is that the java process will respond to <code>KILL</code> signals sent to the container. In practice that means, for instance, that if you <code>docker run</code> your image locally, you can stop it with <code>CTRL-C</code>. If the command line gets a bit long you can extract it out into a shell script and <code>COPY</code> it into the image before you run it. Example:</p>
+</div>
+<div class="paragraph">
+<p><code>Dockerfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">FROM openjdk</span><span class="pun">:</span><span class="lit">8</span><span class="pun">-</span><span class="pln">jdk</span><span class="pun">-</span><span class="pln">alpine
+VOLUME </span><span class="pun">/</span><span class="pln">tmp
+COPY run</span><span class="pun">.</span><span class="pln">sh </span><span class="pun">.</span><span class="pln">
+COPY target</span><span class="com">/*.jar app.jar
+ENTRYPOINT ["run.sh"]</span></code><button class="copy-button button button-small animate" data-clipboard-text="FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+COPY run.sh .
+COPY target/*.jar app.jar
+ENTRYPOINT [&quot;run.sh&quot;]">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Remember to use <code>exec java …​</code> to launch the java process (so it can handle the <code>KILL</code> signals):</p>
+</div>
+<div class="paragraph">
+<p><code>run.sh</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="com">#!/bin/sh</span><span class="pln">
+</span><span class="kwd">exec</span><span class="pln"> java </span><span class="pun">-</span><span class="pln">jar </span><span class="pun">/</span><span class="pln">app</span><span class="pun">.</span><span class="pln">jar</span></code><button class="copy-button button button-small animate" data-clipboard-text="#!/bin/sh
+exec java -jar /app.jar">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Another interesting aspect of the entry point is whether or not you can inject environment variables into the java process at runtime. For example, suppose you want to have the option to add java command line options at runtime. You might try to do this:</p>
+</div>
+<div class="paragraph">
+<p><code>Dockerfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">FROM openjdk</span><span class="pun">:</span><span class="lit">8</span><span class="pun">-</span><span class="pln">jdk</span><span class="pun">-</span><span class="pln">alpine
+VOLUME </span><span class="pun">/</span><span class="pln">tmp
+ARG JAR_FILE</span><span class="pun">=</span><span class="pln">target</span><span class="com">/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","${JAVA_OPTS}","-jar","/app.jar"]</span></code><button class="copy-button button button-small animate" data-clipboard-text="FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT [&quot;java&quot;,&quot;${JAVA_OPTS}&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ docker build </span><span class="pun">-</span><span class="pln">t myorg</span><span class="pun">/</span><span class="pln">myapp </span><span class="pun">.</span><span class="pln">
+$ docker run </span><span class="pun">-</span><span class="pln">p </span><span class="lit">9000</span><span class="pun">:</span><span class="lit">9000</span><span class="pln"> </span><span class="pun">-</span><span class="pln">e JAVA_OPTS</span><span class="pun">=-</span><span class="typ">Dserver</span><span class="pun">.</span><span class="pln">port</span><span class="pun">=</span><span class="lit">9000</span><span class="pln"> myorg</span><span class="pun">/</span><span class="pln">myapp</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ docker build -t myorg/myapp .
+$ docker run -p 9000:9000 -e JAVA_OPTS=-Dserver.port=9000 myorg/myapp">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will fail because the <code>${}</code> substitution requires a shell; the exec form doesn’t use a shell to launch the process, so the options will not be applied. You can get round that by moving the entry point to a script (like the <code>run.sh</code> example above), or by explicitly creating a shell in the entry point. For example:</p>
+</div>
+<div class="paragraph">
+<p><code>Dockerfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">FROM openjdk</span><span class="pun">:</span><span class="lit">8</span><span class="pun">-</span><span class="pln">jdk</span><span class="pun">-</span><span class="pln">alpine
+VOLUME </span><span class="pun">/</span><span class="pln">tmp
+ARG JAR_FILE</span><span class="pun">=</span><span class="pln">target</span><span class="com">/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -jar /app.jar"]</span></code><button class="copy-button button button-small animate" data-clipboard-text="FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT [&quot;sh&quot;, &quot;-c&quot;, &quot;java ${JAVA_OPTS} -jar /app.jar&quot;]">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can then launch this app with</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ docker run </span><span class="pun">-</span><span class="pln">p </span><span class="lit">8080</span><span class="pun">:</span><span class="lit">8080</span><span class="pln"> </span><span class="pun">-</span><span class="pln">e </span><span class="str">"JAVA_OPTS=-Ddebug -Xmx128m"</span><span class="pln"> myorg</span><span class="pun">/</span><span class="pln">myapp
+</span><span class="pun">...</span><span class="pln">
+  </span><span class="pun">.</span><span class="pln">   ____          _            __ _ _
+ </span><span class="pun">/</span><span class="pln">\\ </span><span class="pun">/</span><span class="pln"> ___</span><span class="str">'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '</span><span class="pln">_ </span><span class="pun">|</span><span class="pln"> </span><span class="str">'_| | '</span><span class="pln">_ \/ _</span><span class="str">` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.0.RELEASE)
+...
+2019-10-29 09:12:12.169 DEBUG 1 --- [           main] ConditionEvaluationReportLoggingListener :
+
+
+============================
+CONDITIONS EVALUATION REPORT
+============================
+...</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ docker run -p 8080:8080 -e &quot;JAVA_OPTS=-Ddebug -Xmx128m&quot; myorg/myapp
+...
+  .   ____          _            __ _ _
+ /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  &#39;  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.0.RELEASE)
+...
+2019-10-29 09:12:12.169 DEBUG 1 --- [           main] ConditionEvaluationReportLoggingListener :
+
+
+============================
+CONDITIONS EVALUATION REPORT
+============================
+...">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(Showing parts of the full <code>DEBUG</code> output that is generated with <code>-Ddebug</code> by Spring Boot.)</p>
+</div>
+<div class="paragraph">
+<p>Using an <code>ENTRYPOINT</code> with an explicit shell like the above means that you can pass environment variables into the java command, but so far you cannot also provide command line arguments to the Spring Boot application. This trick doesn’t work to run the app on port 9000:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ docker run </span><span class="pun">-</span><span class="pln">p </span><span class="lit">9000</span><span class="pun">:</span><span class="lit">9000</span><span class="pln"> myorg</span><span class="pun">/</span><span class="pln">myapp </span><span class="pun">--</span><span class="pln">server</span><span class="pun">.</span><span class="pln">port</span><span class="pun">=</span><span class="lit">9000</span><span class="pln">
+  </span><span class="pun">.</span><span class="pln">   ____          _            __ _ _
+ </span><span class="pun">/</span><span class="pln">\\ </span><span class="pun">/</span><span class="pln"> ___</span><span class="str">'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '</span><span class="pln">_ </span><span class="pun">|</span><span class="pln"> </span><span class="str">'_| | '</span><span class="pln">_ \/ _</span><span class="str">` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.0.RELEASE)
+...
+2019-10-29 09:20:19.718  INFO 1 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 8080</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ docker run -p 9000:9000 myorg/myapp --server.port=9000
+  .   ____          _            __ _ _
+ /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  &#39;  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.0.RELEASE)
+...
+2019-10-29 09:20:19.718  INFO 1 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 8080">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The reason it didn’t work is because the docker command (the <code>--server.port=9000</code> part) is passed to the entry point (<code>sh</code>), not to the java process which it launches. To fix that you need to add the command line from the <code>CMD</code> to the <code>ENTRYPOINT</code>:</p>
+</div>
+<div class="paragraph">
+<p><code>Dockerfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">FROM openjdk</span><span class="pun">:</span><span class="lit">8</span><span class="pun">-</span><span class="pln">jdk</span><span class="pun">-</span><span class="pln">alpine
+VOLUME </span><span class="pun">/</span><span class="pln">tmp
+ARG JAR_FILE</span><span class="pun">=</span><span class="pln">target</span><span class="com">/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -jar /app.jar ${0} ${@}"]</span></code><button class="copy-button button button-small animate" data-clipboard-text="FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT [&quot;sh&quot;, &quot;-c&quot;, &quot;java ${JAVA_OPTS} -jar /app.jar ${0} ${@}&quot;]">Copy</button></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ docker run </span><span class="pun">-</span><span class="pln">p </span><span class="lit">9000</span><span class="pun">:</span><span class="lit">9000</span><span class="pln"> myorg</span><span class="pun">/</span><span class="pln">myapp </span><span class="pun">--</span><span class="pln">server</span><span class="pun">.</span><span class="pln">port</span><span class="pun">=</span><span class="lit">9000</span><span class="pln">
+  </span><span class="pun">.</span><span class="pln">   ____          _            __ _ _
+ </span><span class="pun">/</span><span class="pln">\\ </span><span class="pun">/</span><span class="pln"> ___</span><span class="str">'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '</span><span class="pln">_ </span><span class="pun">|</span><span class="pln"> </span><span class="str">'_| | '</span><span class="pln">_ \/ _</span><span class="str">` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.0.RELEASE)
+...
+2019-10-29 09:30:19.751  INFO 1 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 9000</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ docker run -p 9000:9000 myorg/myapp --server.port=9000
+  .   ____          _            __ _ _
+ /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  &#39;  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.0.RELEASE)
+...
+2019-10-29 09:30:19.751  INFO 1 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 9000">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note the use of <code>${0}</code> for the "command" (in this case the first program argument) and <code>${@}</code> for the "command arguments" (the rest of the program arguments). If you use a script for the entry point, then you don’t need the <code>${0}</code> (that would be <code>/app/run.sh</code> in the example above). Example:</p>
+</div>
+<div class="paragraph">
+<p><code>run.sh</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="com">#!/bin/sh</span><span class="pln">
+</span><span class="kwd">exec</span><span class="pln"> java $</span><span class="pun">{</span><span class="pln">JAVA_OPTS</span><span class="pun">}</span><span class="pln"> </span><span class="pun">-</span><span class="pln">jar </span><span class="pun">/</span><span class="pln">app</span><span class="pun">.</span><span class="pln">jar $</span><span class="pun">{@}</span></code><button class="copy-button button button-small animate" data-clipboard-text="#!/bin/sh
+exec java ${JAVA_OPTS} -jar /app.jar ${@}">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The docker configuration is very simple so far, and the generated image is not very efficient. The docker image has a single filesystem layer with the fat jar in it, and every change we make to the application code changes that layer, which might be 10MB or more (even as much as 50MB for some apps). We can improve on that by splitting the JAR up into multiple layers.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_smaller_images">Smaller Images</h3>
+<div class="paragraph">
+<p>Notice that the base image in the example above is <code>openjdk:8-jdk-alpine</code>. The <code>alpine</code> images are smaller than the standard <code>openjdk</code> library images from <a href="https://hub.docker.com/_/openjdk/">Dockerhub</a>. There is no official alpine image for Java 11 yet (AdoptOpenJDK had one for a while but it no longer appears on their <a href="https://hub.docker.com/r/adoptopenjdk/openjdk11/">Dockerhub page</a>). You can also save about 20MB in the base image by using the "jre" label instead of "jdk". Not all apps work with a JRE (as opposed to a JDK), but most do, and indeed some organizations enforce a rule that every app has to because of the risk of misuse of some of the JDK features (like compilation).</p>
+</div>
+<div class="paragraph">
+<p>Another trick that could get you a smaller image is to use <a href="https://openjdk.java.net/projects/jigsaw/quick-start#linker">JLink</a>, which is bundled with OpenJDK 11. JLink allows you to build a custom JRE distribution from a subset of modules in the full JDK, so you don’t need a JRE or JDK in the base image. In principle this would get you a smaller total image size than using the <code>openjdk</code> official docker images. In practice, you won’t (yet) be able to use the <code>alpine</code> base image with JDK 11, so your choice of base image will be limited and will probably result in a larger final image size. Also, a custom JRE in your own base image cannot be shared amongst other applications, since they would need different customizations. So you might have smaller images for all your applications, but they still take longer to start because they don’t benefit from caching the JRE layer.</p>
+</div>
+<div class="paragraph">
+<p>That last point highlights a really important concern for image builders: the goal is not necessarily always going to be to build the smallest image possible. Smaller images are generally a good idea because they take less time to upload and download, but only if none of the layers in them are already cached. Image registries are quite sophisticated these days and you can easily lose the benefit of those features by trying to be clever with the image construction. If you use common base layers, the total size of an image is less of a concern, and will probably become even less of one as the registries and platforms evolve. Having said that, it is still important, and useful, to try and optimize the layers in our application image, but the goal should always be to put the fastest changing stuff in the highest layers, and to share as many of the large, lower layers as possible with other applications.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_better_dockerfile">A Better Dockerfile</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Spring Boot fat jar naturally has "layers" because of the way that the jar itself is packaged. If we unpack it first it will already be divided into external and internal dependencies. To do this in one step in the docker build, we need to unpack the jar first. For example (sticking with Maven, but the Gradle version is pretty similar):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ mkdir target</span><span class="pun">/</span><span class="pln">dependency
+$ </span><span class="pun">(</span><span class="pln">cd target</span><span class="pun">/</span><span class="pln">dependency</span><span class="pun">;</span><span class="pln"> jar </span><span class="pun">-</span><span class="pln">xf </span><span class="pun">..</span><span class="com">/*.jar)
+$ docker build -t myorg/myapp .</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ mkdir target/dependency
+$ (cd target/dependency; jar -xf ../*.jar)
+$ docker build -t myorg/myapp .">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>with this <code>Dockerfile</code></p>
+</div>
+<div class="paragraph">
+<p><code>Dockerfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">FROM openjdk</span><span class="pun">:</span><span class="lit">8</span><span class="pun">-</span><span class="pln">jdk</span><span class="pun">-</span><span class="pln">alpine
+VOLUME </span><span class="pun">/</span><span class="pln">tmp
+ARG DEPENDENCY</span><span class="pun">=</span><span class="pln">target</span><span class="pun">/</span><span class="pln">dependency
+COPY $</span><span class="pun">{</span><span class="pln">DEPENDENCY</span><span class="pun">}/</span><span class="pln">BOOT</span><span class="pun">-</span><span class="pln">INF</span><span class="pun">/</span><span class="pln">lib </span><span class="pun">/</span><span class="pln">app</span><span class="pun">/</span><span class="pln">lib
+COPY $</span><span class="pun">{</span><span class="pln">DEPENDENCY</span><span class="pun">}/</span><span class="pln">META</span><span class="pun">-</span><span class="pln">INF </span><span class="pun">/</span><span class="pln">app</span><span class="pun">/</span><span class="pln">META</span><span class="pun">-</span><span class="pln">INF
+COPY $</span><span class="pun">{</span><span class="pln">DEPENDENCY</span><span class="pun">}/</span><span class="pln">BOOT</span><span class="pun">-</span><span class="pln">INF</span><span class="pun">/</span><span class="pln">classes </span><span class="pun">/</span><span class="pln">app
+ENTRYPOINT </span><span class="pun">[</span><span class="str">"java"</span><span class="pun">,</span><span class="str">"-cp"</span><span class="pun">,</span><span class="str">"app:app/lib/*"</span><span class="pun">,</span><span class="str">"hello.Application"</span><span class="pun">]</span></code><button class="copy-button button button-small animate" data-clipboard-text="FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG DEPENDENCY=target/dependency
+COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY ${DEPENDENCY}/META-INF /app/META-INF
+COPY ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT [&quot;java&quot;,&quot;-cp&quot;,&quot;app:app/lib/*&quot;,&quot;hello.Application&quot;]">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are now 3 layers, with all the application resources in the later 2 layers. If the application dependencies don’t change, then the first layer (from <code>BOOT-INF/lib</code>) will not change, so the build will be faster, and so will the startup of the container at runtime as long as the base layers are already cached.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody>
+<tr>
+<td class="icon"> <i class="fa icon-note" title="Note"></i> </td>
+<td class="content"> We used a hard-coded main application class <code>hello.Application</code>. This will probably be different for your application. You could parameterize it with another <code>ARG</code> if you wanted. You could also copy the Spring Boot fat <code>JarLauncher</code> into the image and use it to run the app - it would work and you wouldn’t need to specify the main class, but it would be a bit slower on startup. </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tweaks">Tweaks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to start your app as quickly as possible (most people do) there are some tweaks you might consider. Here are some ideas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li> <p>Use the <code>spring-context-indexer</code> (<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-scanning-index">link to docs</a>). It’s not going to add much for small apps, but every little helps.</p> </li>
+<li> <p>Don’t use <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#production-ready">actuators</a> if you can afford not to.</p> </li>
+<li> <p>Use Spring Boot 2.1 and Spring 5.1.</p> </li>
+<li> <p>Fix the location of the <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config-application-property-files">Spring Boot config file(s)</a> with <code>spring.config.location</code> (command line argument or System property etc.).</p> </li>
+<li> <p>Switch off JMX - you probably don’t need it in a container - with <code>spring.jmx.enabled=false</code></p> </li>
+<li> <p>Run the JVM with <code>-noverify</code>. Also consider <code>-XX:TieredStopAtLevel=1</code> (that will slow down the JIT later at the expense of the saved startup time).</p> </li>
+<li> <p>Use the container memory hints for Java 8: <code>-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap</code>. With Java 11 this is automatic by default.</p> </li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Your app might not need a full CPU at runtime, but it will need multiple CPUs to start up as quickly as possible (at least 2, 4 are better). If you don’t mind a slower startup you could throttle the CPUs down below 4. If you are forced to start with less than 4 CPUs it might help to set <code>-Dspring.backgroundpreinitializer.ignore=true</code> since it prevents Spring Boot from creating a new thread that it probably won’t be able to use (this works with Spring Boot 2.1.0 and above).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_multi_stage_build">Multi-Stage Build</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>Dockerfile</code> above assumed that the fat JAR was already built on the command line. You can also do that step in docker using a multi-stage build, copying the result from one image to another. Example, using Maven:</p>
+</div>
+<div class="paragraph">
+<p><code>Dockerfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">FROM openjdk</span><span class="pun">:</span><span class="lit">8</span><span class="pun">-</span><span class="pln">jdk</span><span class="pun">-</span><span class="pln">alpine </span><span class="kwd">as</span><span class="pln"> build
+WORKDIR </span><span class="pun">/</span><span class="pln">workspace</span><span class="pun">/</span><span class="pln">app
+
+COPY mvnw </span><span class="pun">.</span><span class="pln">
+COPY </span><span class="pun">.</span><span class="pln">mvn </span><span class="pun">.</span><span class="pln">mvn
+COPY pom</span><span class="pun">.</span><span class="pln">xml </span><span class="pun">.</span><span class="pln">
+COPY src src
+
+RUN </span><span class="pun">./</span><span class="pln">mvnw install </span><span class="pun">-</span><span class="typ">DskipTests</span><span class="pln">
+RUN mkdir </span><span class="pun">-</span><span class="pln">p target</span><span class="pun">/</span><span class="pln">dependency </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">cd target</span><span class="pun">/</span><span class="pln">dependency</span><span class="pun">;</span><span class="pln"> jar </span><span class="pun">-</span><span class="pln">xf </span><span class="pun">..</span><span class="com">/*.jar)
+
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG DEPENDENCY=/workspace/app/target/dependency
+COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
+COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT ["java","-cp","app:app/lib/*","hello.Application"]</span></code><button class="copy-button button button-small animate" data-clipboard-text="FROM openjdk:8-jdk-alpine as build
+WORKDIR /workspace/app
+
+COPY mvnw .
+COPY .mvn .mvn
+COPY pom.xml .
+COPY src src
+
+RUN ./mvnw install -DskipTests
+RUN mkdir -p target/dependency &amp;&amp; (cd target/dependency; jar -xf ../*.jar)
+
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG DEPENDENCY=/workspace/app/target/dependency
+COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
+COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT [&quot;java&quot;,&quot;-cp&quot;,&quot;app:app/lib/*&quot;,&quot;hello.Application&quot;]">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first image is labelled "build" and it is used to run Maven and build the fat jar, then unpack it. The unpacking could also be done by Maven or Gradle (this is the approach taken in the Getting Started Guide) - there really isn’t much difference, except that the build configuration would have to be edited and a plugin added.</p>
+</div>
+<div class="paragraph">
+<p>Notice that the source code has been split into 4 layers. The later layers contain the build configuration and the source code for the app, and the earlier layers contain the build system itself (the Maven wrapper). This is a small optimization, and it also means that we don’t have to copy the <code>target</code> directory to a docker image, even a temporary one used for the build.</p>
+</div>
+<div class="paragraph">
+<p>Every build where the source code changes will be slow because the Maven cache has to be re-created in the first <code>RUN</code> section. But you have a completely standalone build that anyone can run to get your application running as long as they have docker. That can be quite useful in some environments, e.g. where you need to share your code with people who don’t know Java.</p>
+</div>
+<div class="sect2">
+<h3 id="_experimental_features">Experimental Features</h3>
+<div class="paragraph">
+<p>Docker 18.06 comes with some <a href="https://github.com/moby/buildkit/blob/master/frontend/dockerfile/docs/experimental.md">"experimental" features</a> that includes a way to cache build dependencies. To switch them on you need a flag in the daemon (<code>dockerd</code>) and also an environment variable when you run the client, and then you can add a magic first line to your <code>Dockerfile</code>:</p>
+</div>
+<div class="paragraph">
+<p><code>Dockerfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="com"># syntax=docker/dockerfile:experimental</span></code><button class="copy-button button button-small animate" data-clipboard-text="# syntax=docker/dockerfile:experimental">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and the <code>RUN</code> directive then accepts a new flag <code>--mount</code>. Here’s a full example:</p>
+</div>
+<div class="paragraph">
+<p><code>Dockerfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="com"># syntax=docker/dockerfile:experimental</span><span class="pln">
+FROM openjdk</span><span class="pun">:</span><span class="lit">8</span><span class="pun">-</span><span class="pln">jdk</span><span class="pun">-</span><span class="pln">alpine </span><span class="kwd">as</span><span class="pln"> build
+WORKDIR </span><span class="pun">/</span><span class="pln">workspace</span><span class="pun">/</span><span class="pln">app
+
+COPY mvnw </span><span class="pun">.</span><span class="pln">
+COPY </span><span class="pun">.</span><span class="pln">mvn </span><span class="pun">.</span><span class="pln">mvn
+COPY pom</span><span class="pun">.</span><span class="pln">xml </span><span class="pun">.</span><span class="pln">
+COPY src src
+
+RUN </span><span class="pun">--</span><span class="pln">mount</span><span class="pun">=</span><span class="pln">type</span><span class="pun">=</span><span class="pln">cache</span><span class="pun">,</span><span class="pln">target</span><span class="pun">=</span><span class="str">/root/</span><span class="pun">.</span><span class="pln">m2 </span><span class="pun">./</span><span class="pln">mvnw install </span><span class="pun">-</span><span class="typ">DskipTests</span><span class="pln">
+RUN mkdir </span><span class="pun">-</span><span class="pln">p target</span><span class="pun">/</span><span class="pln">dependency </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">cd target</span><span class="pun">/</span><span class="pln">dependency</span><span class="pun">;</span><span class="pln"> jar </span><span class="pun">-</span><span class="pln">xf </span><span class="pun">..</span><span class="com">/*.jar)
+
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG DEPENDENCY=/workspace/app/target/dependency
+COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
+COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT ["java","-cp","app:app/lib/*","hello.Application"]</span></code><button class="copy-button button button-small animate" data-clipboard-text="# syntax=docker/dockerfile:experimental
+FROM openjdk:8-jdk-alpine as build
+WORKDIR /workspace/app
+
+COPY mvnw .
+COPY .mvn .mvn
+COPY pom.xml .
+COPY src src
+
+RUN --mount=type=cache,target=/root/.m2 ./mvnw install -DskipTests
+RUN mkdir -p target/dependency &amp;&amp; (cd target/dependency; jar -xf ../*.jar)
+
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG DEPENDENCY=/workspace/app/target/dependency
+COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
+COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT [&quot;java&quot;,&quot;-cp&quot;,&quot;app:app/lib/*&quot;,&quot;hello.Application&quot;]">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then run it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ DOCKER_BUILDKIT</span><span class="pun">=</span><span class="lit">1</span><span class="pln"> docker build </span><span class="pun">-</span><span class="pln">t myorg</span><span class="pun">/</span><span class="pln">myapp </span><span class="pun">.</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">
+ </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">bin</span><span class="pun">/</span><span class="pln">sh </span><span class="pun">-</span><span class="pln">c </span><span class="pun">./</span><span class="pln">mvnw install </span><span class="pun">-</span><span class="typ">DskipTests</span><span class="pln">              </span><span class="lit">5.7s</span><span class="pln">
+ </span><span class="pun">=&gt;</span><span class="pln"> exporting to image                                 </span><span class="lit">0.0s</span><span class="pln">
+ </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> exporting layers                                </span><span class="lit">0.0s</span><span class="pln">
+ </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> writing image sha256</span><span class="pun">:</span><span class="lit">3defa</span><span class="pun">...</span><span class="pln">
+ </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> naming to docker</span><span class="pun">.</span><span class="pln">io</span><span class="pun">/</span><span class="pln">myorg</span><span class="pun">/</span><span class="pln">myapp</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ DOCKER_BUILDKIT=1 docker build -t myorg/myapp .
+...
+ =&gt; /bin/sh -c ./mvnw install -DskipTests              5.7s
+ =&gt; exporting to image                                 0.0s
+ =&gt; =&gt; exporting layers                                0.0s
+ =&gt; =&gt; writing image sha256:3defa...
+ =&gt; =&gt; naming to docker.io/myorg/myapp">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With the experimental features you get a different output on the console, but you can see that a Maven build now only takes a few seconds instead of minutes, once the cache is warm.</p>
+</div>
+<div class="paragraph">
+<p>The Gradle version of this <code>Dockerfile</code> configuration is very similar:</p>
+</div>
+<div class="paragraph">
+<p><code>Dockerfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="com"># syntax=docker/dockerfile:experimental</span><span class="pln">
+FROM openjdk</span><span class="pun">:</span><span class="lit">8</span><span class="pun">-</span><span class="pln">jdk</span><span class="pun">-</span><span class="pln">alpine AS build
+WORKDIR </span><span class="pun">/</span><span class="pln">workspace</span><span class="pun">/</span><span class="pln">app
+
+COPY </span><span class="pun">.</span><span class="pln"> </span><span class="pun">/</span><span class="pln">workspace</span><span class="pun">/</span><span class="pln">app
+RUN </span><span class="pun">--</span><span class="pln">mount</span><span class="pun">=</span><span class="pln">type</span><span class="pun">=</span><span class="pln">cache</span><span class="pun">,</span><span class="pln">target</span><span class="pun">=</span><span class="str">/root/</span><span class="pun">.</span><span class="pln">gradle </span><span class="pun">./</span><span class="pln">gradlew clean build
+RUN mkdir </span><span class="pun">-</span><span class="pln">p build</span><span class="pun">/</span><span class="pln">dependency </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">cd build</span><span class="pun">/</span><span class="pln">dependency</span><span class="pun">;</span><span class="pln"> jar </span><span class="pun">-</span><span class="pln">xf </span><span class="pun">../</span><span class="pln">libs</span><span class="com">/*.jar)
+
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG DEPENDENCY=/workspace/app/build/dependency
+COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
+COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT ["java","-cp","app:app/lib/*","hello.Application"]</span></code><button class="copy-button button button-small animate" data-clipboard-text="# syntax=docker/dockerfile:experimental
+FROM openjdk:8-jdk-alpine AS build
+WORKDIR /workspace/app
+
+COPY . /workspace/app
+RUN --mount=type=cache,target=/root/.gradle ./gradlew clean build
+RUN mkdir -p build/dependency &amp;&amp; (cd build/dependency; jar -xf ../libs/*.jar)
+
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG DEPENDENCY=/workspace/app/build/dependency
+COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
+COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT [&quot;java&quot;,&quot;-cp&quot;,&quot;app:app/lib/*&quot;,&quot;hello.Application&quot;]">Copy</button></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody>
+<tr>
+<td class="icon"> <i class="fa icon-note" title="Note"></i> </td>
+<td class="content"> While these features are in the experimental phase, the options for switching buildkit on and off depend on the version of <code>docker</code> that you are using. Check the documentation for the version you have (the example above is correct for <code>docker</code> 18.0.6). </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_security_aspects">Security Aspects</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Just as in classic VM-deployments, processes should not be run with root permissions. Instead the image should contain a non-root user that runs the app.</p>
+</div>
+<div class="paragraph">
+<p>In a <code>Dockerfile</code>, this can be achieved by adding another layer that adds a (system) user and group, then set it as the current user (instead of the default, root):</p>
+</div>
+<div class="paragraph">
+<p><code>Dockerfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">FROM openjdk</span><span class="pun">:</span><span class="lit">8</span><span class="pun">-</span><span class="pln">jdk</span><span class="pun">-</span><span class="pln">alpine
+
+RUN addgroup </span><span class="pun">-</span><span class="pln">S demo </span><span class="pun">&amp;&amp;</span><span class="pln"> adduser </span><span class="pun">-</span><span class="pln">S demo </span><span class="pun">-</span><span class="pln">G demo
+USER demo
+
+</span><span class="pun">...</span></code><button class="copy-button button button-small animate" data-clipboard-text="FROM openjdk:8-jdk-alpine
+
+RUN addgroup -S demo &amp;&amp; adduser -S demo -G demo
+USER demo
+
+...">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In case someone manages to break out of your app and run system commands inside the container, this will limit their capabilities (principle of least privilege).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody>
+<tr>
+<td class="icon"> <i class="fa icon-note" title="Note"></i> </td>
+<td class="content"> Some of the further <code>Dockerfile</code> commands only work as root, so maybe you have to move the USER command further down (e.g. if you plan to install more packages into the container, which only works as root). </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody>
+<tr>
+<td class="icon"> <i class="fa icon-note" title="Note"></i> </td>
+<td class="content"> Other approaches, not using a <code>Dockerfile</code>, might be more amenable. For instance, in the buildpack approach described later, most implementations will use a non-root user by default. </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+<p>Another consideration is that the full JDK is probably not needed by most apps at runtime, so we can safely switch to the JRE base image, once we have a multi-stage build. So in the multi-stage build above we can use</p>
+</div>
+<div class="paragraph">
+<p><code>Dockerfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">FROM openjdk</span><span class="pun">:</span><span class="lit">8</span><span class="pun">-</span><span class="pln">jre</span><span class="pun">-</span><span class="pln">alpine
+
+</span><span class="pun">...</span></code><button class="copy-button button button-small animate" data-clipboard-text="FROM openjdk:8-jre-alpine
+
+...">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>for the final, runnable image. As already mentioned above, this also saves some space in the image which would be occupied by tools that are not needed at runtime.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_plugins">Build Plugins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you don’t want to call <code>docker</code> directly in your build, there is quite a rich set of plugins for Maven and Gradle that can do that work for you. Here are just a few.</p>
+</div>
+<div class="sect2">
+<h3 id="_spring_boot_plugins">Spring Boot Plugins</h3>
+<div class="paragraph">
+<p>With Spring Boot 2.3 you have the option of building an image from Maven or Gradle directly with Spring Boot. As long as you are already building a Spring Boot jar file, you only need to call the plugin directly. With <a href="https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/html/#build-image">Maven</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ </span><span class="pun">./</span><span class="pln">mvnw spring</span><span class="pun">-</span><span class="pln">boot</span><span class="pun">:</span><span class="pln">build</span><span class="pun">-</span><span class="pln">image</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ ./mvnw spring-boot:build-image">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and with <a href="https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/#build-image">Gradle</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ </span><span class="pun">./</span><span class="pln">gradlew bootBuildImage</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ ./gradlew bootBuildImage">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It uses the local docker daemon (which therefore must be installed) but doesn’t require a <code>Dockerfile</code>. The result is an image called <code>docker.io/&lt;group&gt;/&lt;artifact&gt;:latest</code> by default. You can modify the image name in Maven using</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code data-lang="xml"><span class="tag">&lt;project&gt;</span><span class="pln">
+	</span><span class="tag">&lt;build&gt;</span><span class="pln">
+		</span><span class="tag">&lt;plugins&gt;</span><span class="pln">
+			</span><span class="tag">&lt;plugin&gt;</span><span class="pln">
+				</span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.springframework.boot</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+				</span><span class="tag">&lt;artifactId&gt;</span><span class="pln">spring-boot-maven-plugin</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+				</span><span class="tag">&lt;configuration&gt;</span><span class="pln">
+					</span><span class="tag">&lt;image&gt;</span><span class="pln">
+						</span><span class="tag">&lt;name&gt;</span><span class="pln">myorg.demo</span><span class="tag">&lt;/name&gt;</span><span class="pln">
+					</span><span class="tag">&lt;/image&gt;</span><span class="pln">
+				</span><span class="tag">&lt;/configuration&gt;</span><span class="pln">
+			</span><span class="tag">&lt;/plugin&gt;</span><span class="pln">
+		</span><span class="tag">&lt;/plugins&gt;</span><span class="pln">
+	</span><span class="tag">&lt;/build&gt;</span><span class="pln">
+</span><span class="tag">&lt;/project&gt;</span></code><button class="copy-button button button-small animate" data-clipboard-text="&lt;project&gt;
+	&lt;build&gt;
+		&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+				&lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+				&lt;configuration&gt;
+					&lt;image&gt;
+						&lt;name&gt;myorg.demo&lt;/name&gt;
+					&lt;/image&gt;
+				&lt;/configuration&gt;
+			&lt;/plugin&gt;
+		&lt;/plugins&gt;
+	&lt;/build&gt;
+&lt;/project&gt;">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and in Gradle using</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code data-lang="groovy"><span class="pln">bootBuildImage </span><span class="pun">{</span><span class="pln">
+	imageName </span><span class="pun">=</span><span class="pln"> </span><span class="str">"myorg/demo"</span><span class="pln">
+</span><span class="pun">}</span></code><button class="copy-button button button-small animate" data-clipboard-text="bootBuildImage {
+	imageName = &quot;myorg/demo&quot;
+}">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The image is built using <a href="https://buildpacks.io/">Cloud Native Buildpacks</a>, where the default builder is optimized for a Spring Boot application (you can customize it but the defaults are useful). The image is layered efficiently, like in the examples above. It also uses the CF memory calculator to size the JVM at runtime based on the container resources available, so when you run the image you will see the memory calculator reporting its results:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ docker run </span><span class="pun">-</span><span class="pln">p </span><span class="lit">8080</span><span class="pun">:</span><span class="lit">8080</span><span class="pln"> myorg</span><span class="pun">/</span><span class="pln">demo
+</span><span class="typ">Container</span><span class="pln"> memory limit unset</span><span class="pun">.</span><span class="pln"> </span><span class="typ">Configuring</span><span class="pln"> JVM </span><span class="kwd">for</span><span class="pln"> </span><span class="lit">1G</span><span class="pln"> container</span><span class="pun">.</span><span class="pln">
+</span><span class="typ">Calculated</span><span class="pln"> JVM </span><span class="typ">Memory</span><span class="pln"> </span><span class="typ">Configuration</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="pln">XX</span><span class="pun">:</span><span class="typ">MaxDirectMemorySize</span><span class="pun">=</span><span class="lit">10M</span><span class="pln"> </span><span class="pun">-</span><span class="pln">XX</span><span class="pun">:</span><span class="typ">MaxMetaspaceSize</span><span class="pun">=</span><span class="lit">86557K</span><span class="pln"> </span><span class="pun">-</span><span class="pln">XX</span><span class="pun">:</span><span class="typ">ReservedCodeCacheSize</span><span class="pun">=</span><span class="lit">240M</span><span class="pln"> </span><span class="pun">-</span><span class="typ">Xss1M</span><span class="pln"> </span><span class="pun">-</span><span class="typ">Xmx450018K</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Head</span><span class="pln"> </span><span class="typ">Room</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">%,</span><span class="pln"> </span><span class="typ">Loaded</span><span class="pln"> </span><span class="typ">Class</span><span class="pln"> </span><span class="typ">Count</span><span class="pun">:</span><span class="pln"> </span><span class="lit">12868</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Thread</span><span class="pln"> </span><span class="typ">Count</span><span class="pun">:</span><span class="pln"> </span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Total</span><span class="pln"> </span><span class="typ">Memory</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1073741824</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">...</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ docker run -p 8080:8080 myorg/demo
+Container memory limit unset. Configuring JVM for 1G container.
+Calculated JVM Memory Configuration: -XX:MaxDirectMemorySize=10M -XX:MaxMetaspaceSize=86557K -XX:ReservedCodeCacheSize=240M -Xss1M -Xmx450018K (Head Room: 0%, Loaded Class Count: 12868, Thread Count: 250, Total Memory: 1073741824)
+...">Copy</button></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spotify_maven_plugin">Spotify Maven Plugin</h3>
+<div class="paragraph">
+<p>The <a href="https://github.com/spotify/dockerfile-maven">Spotify Maven Plugin</a> is a popular choice. It requires the application developer to write a <code>Dockerfile</code> and then runs <code>docker</code> for you, just as if you were doing it on the command line. There are some configuration options for the docker image tag and other stuff, but it keeps the docker knowledge in your application concentrated in a <code>Dockerfile</code>, which many people like.</p>
+</div>
+<div class="paragraph">
+<p>For really basic usage it will work out of the box with no extra configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ mvn com</span><span class="pun">.</span><span class="pln">spotify</span><span class="pun">:</span><span class="pln">dockerfile</span><span class="pun">-</span><span class="pln">maven</span><span class="pun">-</span><span class="pln">plugin</span><span class="pun">:</span><span class="pln">build
+</span><span class="pun">...</span><span class="pln">
+</span><span class="pun">[</span><span class="pln">INFO</span><span class="pun">]</span><span class="pln"> </span><span class="typ">Building</span><span class="pln"> </span><span class="typ">Docker</span><span class="pln"> context </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">dsyer</span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pln">demo</span><span class="pun">/</span><span class="pln">workspace</span><span class="pun">/</span><span class="pln">myapp
+</span><span class="pun">[</span><span class="pln">INFO</span><span class="pun">]</span><span class="pln">
+</span><span class="pun">[</span><span class="pln">INFO</span><span class="pun">]</span><span class="pln"> </span><span class="typ">Image</span><span class="pln"> will be built without a name
+</span><span class="pun">[</span><span class="pln">INFO</span><span class="pun">]</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">
+</span><span class="pun">[</span><span class="pln">INFO</span><span class="pun">]</span><span class="pln"> BUILD SUCCESS
+</span><span class="pun">[</span><span class="pln">INFO</span><span class="pun">]</span><span class="pln"> </span><span class="pun">------------------------------------------------------------------------</span><span class="pln">
+</span><span class="pun">[</span><span class="pln">INFO</span><span class="pun">]</span><span class="pln"> </span><span class="typ">Total</span><span class="pln"> time</span><span class="pun">:</span><span class="pln"> </span><span class="lit">7.630</span><span class="pln"> s
+</span><span class="pun">[</span><span class="pln">INFO</span><span class="pun">]</span><span class="pln"> </span><span class="typ">Finished</span><span class="pln"> at</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2018</span><span class="pun">-</span><span class="lit">11</span><span class="pun">-</span><span class="lit">06T16</span><span class="pun">:</span><span class="lit">03</span><span class="pun">:</span><span class="lit">16</span><span class="pun">+</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln">
+</span><span class="pun">[</span><span class="pln">INFO</span><span class="pun">]</span><span class="pln"> </span><span class="typ">Final</span><span class="pln"> </span><span class="typ">Memory</span><span class="pun">:</span><span class="pln"> </span><span class="lit">26M</span><span class="pun">/</span><span class="lit">595M</span><span class="pln">
+</span><span class="pun">[</span><span class="pln">INFO</span><span class="pun">]</span><span class="pln"> </span><span class="pun">------------------------------------------------------------------------</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ mvn com.spotify:dockerfile-maven-plugin:build
+...
+[INFO] Building Docker context /home/dsyer/dev/demo/workspace/myapp
+[INFO]
+[INFO] Image will be built without a name
+[INFO]
+...
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 7.630 s
+[INFO] Finished at: 2018-11-06T16:03:16+00:00
+[INFO] Final Memory: 26M/595M
+[INFO] ------------------------------------------------------------------------">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That builds an anonymous docker image. We can tag it with <code>docker</code> on the command line now, or use Maven configuration to set it as the <code>repository</code>. Example (without changing the <code>pom.xml</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ mvn com</span><span class="pun">.</span><span class="pln">spotify</span><span class="pun">:</span><span class="pln">dockerfile</span><span class="pun">-</span><span class="pln">maven</span><span class="pun">-</span><span class="pln">plugin</span><span class="pun">:</span><span class="pln">build </span><span class="pun">-</span><span class="typ">Ddockerfile</span><span class="pun">.</span><span class="pln">repository</span><span class="pun">=</span><span class="pln">myorg</span><span class="pun">/</span><span class="pln">myapp</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ mvn com.spotify:dockerfile-maven-plugin:build -Ddockerfile.repository=myorg/myapp">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or in the <code>pom.xml</code>:</p>
+</div>
+<div class="paragraph">
+<p><code>pom.xml</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="tag">&lt;build&gt;</span><span class="pln">
+    </span><span class="tag">&lt;plugins&gt;</span><span class="pln">
+        </span><span class="tag">&lt;plugin&gt;</span><span class="pln">
+            </span><span class="tag">&lt;groupId&gt;</span><span class="pln">com.spotify</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+            </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">dockerfile-maven-plugin</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+            </span><span class="tag">&lt;version&gt;</span><span class="pln">1.4.8</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+            </span><span class="tag">&lt;configuration&gt;</span><span class="pln">
+                </span><span class="tag">&lt;repository&gt;</span><span class="pln">myorg/${project.artifactId}</span><span class="tag">&lt;/repository&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/configuration&gt;</span><span class="pln">
+        </span><span class="tag">&lt;/plugin&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/plugins&gt;</span><span class="pln">
+</span><span class="tag">&lt;/build&gt;</span></code><button class="copy-button button button-small animate" data-clipboard-text="&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;com.spotify&lt;/groupId&gt;
+            &lt;artifactId&gt;dockerfile-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;1.4.8&lt;/version&gt;
+            &lt;configuration&gt;
+                &lt;repository&gt;myorg/${project.artifactId}&lt;/repository&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;">Copy</button></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_palantir_gradle_plugin">Palantir Gradle Plugin</h3>
+<div class="paragraph">
+<p>The <a href="https://github.com/palantir/gradle-docker">Palantir Gradle Plugin</a> works with a <code>Dockerfile</code> and it also is able to generate a <code>Dockerfile</code> for you, and then it runs <code>docker</code> as if you were running it on the command line.</p>
+</div>
+<div class="paragraph">
+<p>First you need to import the plugin into your <code>build.gradle</code>:</p>
+</div>
+<div class="paragraph">
+<p><code>build.gradle</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code data-lang="groovy"><span class="pln">buildscript </span><span class="pun">{</span><span class="pln">
+    </span><span class="pun">...</span><span class="pln">
+    dependencies </span><span class="pun">{</span><span class="pln">
+        </span><span class="pun">...</span><span class="pln">
+        classpath</span><span class="pun">(</span><span class="str">'gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.13.0'</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code><button class="copy-button button button-small animate" data-clipboard-text="buildscript {
+    ...
+    dependencies {
+        ...
+        classpath(&#39;gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.13.0&#39;)
+    }
+}">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and then finally you apply the plugin and call its task:</p>
+</div>
+<div class="paragraph">
+<p><code>build.gradle</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code data-lang="groovy"><span class="pln">apply plugin</span><span class="pun">:</span><span class="pln"> </span><span class="str">'com.palantir.docker'</span><span class="pln">
+
+</span><span class="kwd">group</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">'myorg'</span><span class="pln">
+
+bootJar </span><span class="pun">{</span><span class="pln">
+    baseName </span><span class="pun">=</span><span class="pln"> </span><span class="str">'myapp'</span><span class="pln">
+    version </span><span class="pun">=</span><span class="pln">  </span><span class="str">'0.1.0'</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+task unpack</span><span class="pun">(</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Copy</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    dependsOn bootJar
+    </span><span class="kwd">from</span><span class="pun">(</span><span class="pln">zipTree</span><span class="pun">(</span><span class="pln">tasks</span><span class="pun">.</span><span class="pln">bootJar</span><span class="pun">.</span><span class="pln">outputs</span><span class="pun">.</span><span class="pln">files</span><span class="pun">.</span><span class="pln">singleFile</span><span class="pun">))</span><span class="pln">
+    </span><span class="kwd">into</span><span class="pun">(</span><span class="str">"build/dependency"</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+docker </span><span class="pun">{</span><span class="pln">
+    name </span><span class="str">"${project.group}/${bootJar.baseName}"</span><span class="pln">
+    copySpec</span><span class="pun">.</span><span class="kwd">from</span><span class="pun">(</span><span class="pln">tasks</span><span class="pun">.</span><span class="pln">unpack</span><span class="pun">.</span><span class="pln">outputs</span><span class="pun">).</span><span class="kwd">into</span><span class="pun">(</span><span class="str">"dependency"</span><span class="pun">)</span><span class="pln">
+    buildArgs</span><span class="pun">([</span><span class="str">'DEPENDENCY'</span><span class="pun">:</span><span class="pln"> </span><span class="str">"dependency"</span><span class="pun">])</span><span class="pln">
+</span><span class="pun">}</span></code><button class="copy-button button button-small animate" data-clipboard-text="apply plugin: &#39;com.palantir.docker&#39;
+
+group = &#39;myorg&#39;
+
+bootJar {
+    baseName = &#39;myapp&#39;
+    version =  &#39;0.1.0&#39;
+}
+
+task unpack(type: Copy) {
+    dependsOn bootJar
+    from(zipTree(tasks.bootJar.outputs.files.singleFile))
+    into(&quot;build/dependency&quot;)
+}
+docker {
+    name &quot;${project.group}/${bootJar.baseName}&quot;
+    copySpec.from(tasks.unpack.outputs).into(&quot;dependency&quot;)
+    buildArgs([&#39;DEPENDENCY&#39;: &quot;dependency&quot;])
+}">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example we have chosen to unpack the Spring Boot fat jar in a specific location in the <code>build</code> directory, which is the root for the docker build. Then the multi-layer (not multi-stage) <code>Dockerfile</code> from above will work.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_boot_maven_and_gradle_plugins">Spring Boot Maven and Gradle Plugins</h3>
+<div class="paragraph">
+<p>Spring Boot build plugins for <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE/maven-plugin/reference/html/#build-image">Maven</a> and <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE/gradle-plugin/reference/html/#build-image">Gradle</a> can be used to create container images. The plugins create an OCI image (the same format as one created by <code>docker build</code>) using <a href="https://buildpacks.io/">Cloud Native Buildpacks</a>. You don’t need a <code>Dockerfile</code> but you do need a docker daemon, either locally (which is what you use when you build with docker) or remotely via ` DOCKER_HOST` environment variable.</p>
+</div>
+<div class="paragraph">
+<p>Example with Maven (without changing the <code>pom.xml</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ </span><span class="pun">./</span><span class="pln">mvnw spring</span><span class="pun">-</span><span class="pln">boot</span><span class="pun">:</span><span class="pln">build</span><span class="pun">-</span><span class="pln">image </span><span class="pun">-</span><span class="typ">Dspring</span><span class="pun">-</span><span class="pln">boot</span><span class="pun">.</span><span class="pln">build</span><span class="pun">-</span><span class="pln">image</span><span class="pun">.</span><span class="pln">imageName</span><span class="pun">=</span><span class="pln">myorg</span><span class="pun">/</span><span class="pln">myapp</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=myorg/myapp">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and with Gradle:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ </span><span class="pun">./</span><span class="pln">gradlew bootBuildImage </span><span class="pun">--</span><span class="pln">imageName</span><span class="pun">=</span><span class="pln">myorg</span><span class="pun">/</span><span class="pln">myapp</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ ./gradlew bootBuildImage --imageName=myorg/myapp">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first build might take a long time because it has to download some container images, and the JDK, but subsequent builds will be fast.</p>
+</div>
+<div class="paragraph">
+<p>If you run the image:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ docker run </span><span class="pun">-</span><span class="pln">p </span><span class="lit">8080</span><span class="pun">:</span><span class="lit">8080</span><span class="pln"> </span><span class="pun">-</span><span class="pln">t myorg</span><span class="pun">/</span><span class="pln">myapp
+</span><span class="typ">Container</span><span class="pln"> memory limit unset</span><span class="pun">.</span><span class="pln"> </span><span class="typ">Configuring</span><span class="pln"> JVM </span><span class="kwd">for</span><span class="pln"> </span><span class="lit">1G</span><span class="pln"> container</span><span class="pun">.</span><span class="pln">
+</span><span class="typ">Calculated</span><span class="pln"> JVM </span><span class="typ">Memory</span><span class="pln"> </span><span class="typ">Configuration</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="pln">XX</span><span class="pun">:</span><span class="typ">MaxDirectMemorySize</span><span class="pun">=</span><span class="lit">10M</span><span class="pln"> </span><span class="pun">-</span><span class="pln">XX</span><span class="pun">:</span><span class="typ">MaxMetaspaceSize</span><span class="pun">=</span><span class="lit">86381K</span><span class="pln"> </span><span class="pun">-</span><span class="pln">XX</span><span class="pun">:</span><span class="typ">ReservedCodeCacheSize</span><span class="pun">=</span><span class="lit">240M</span><span class="pln"> </span><span class="pun">-</span><span class="typ">Xss1M</span><span class="pln"> </span><span class="pun">-</span><span class="typ">Xmx450194K</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Head</span><span class="pln"> </span><span class="typ">Room</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">%,</span><span class="pln"> </span><span class="typ">Loaded</span><span class="pln"> </span><span class="typ">Class</span><span class="pln"> </span><span class="typ">Count</span><span class="pun">:</span><span class="pln"> </span><span class="lit">12837</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Thread</span><span class="pln"> </span><span class="typ">Count</span><span class="pun">:</span><span class="pln"> </span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Total</span><span class="pln"> </span><span class="typ">Memory</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1073741824</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">....</span><span class="pln">
+</span><span class="lit">2015</span><span class="pun">-</span><span class="lit">03</span><span class="pun">-</span><span class="lit">31</span><span class="pln"> </span><span class="lit">13</span><span class="pun">:</span><span class="lit">25</span><span class="pun">:</span><span class="lit">48.035</span><span class="pln">  INFO </span><span class="lit">1</span><span class="pln"> </span><span class="pun">---</span><span class="pln"> </span><span class="pun">[</span><span class="pln">           main</span><span class="pun">]</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">b</span><span class="pun">.</span><span class="pln">c</span><span class="pun">.</span><span class="pln">e</span><span class="pun">.</span><span class="pln">t</span><span class="pun">.</span><span class="typ">TomcatEmbeddedServletContainer</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="typ">Tomcat</span><span class="pln"> started on port</span><span class="pun">(</span><span class="pln">s</span><span class="pun">):</span><span class="pln"> </span><span class="lit">8080</span><span class="pln"> </span><span class="pun">(</span><span class="pln">http</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">2015</span><span class="pun">-</span><span class="lit">03</span><span class="pun">-</span><span class="lit">31</span><span class="pln"> </span><span class="lit">13</span><span class="pun">:</span><span class="lit">25</span><span class="pun">:</span><span class="lit">48.037</span><span class="pln">  INFO </span><span class="lit">1</span><span class="pln"> </span><span class="pun">---</span><span class="pln"> </span><span class="pun">[</span><span class="pln">           main</span><span class="pun">]</span><span class="pln"> hello</span><span class="pun">.</span><span class="typ">Application</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ docker run -p 8080:8080 -t myorg/myapp
+Container memory limit unset. Configuring JVM for 1G container.
+Calculated JVM Memory Configuration: -XX:MaxDirectMemorySize=10M -XX:MaxMetaspaceSize=86381K -XX:ReservedCodeCacheSize=240M -Xss1M -Xmx450194K (Head Room: 0%, Loaded Class Count: 12837, Thread Count: 250, Total Memory: 1073741824)
+....
+2015-03-31 13:25:48.035  INFO 1 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2015-03-31 13:25:48.037  INFO 1 --- [           main] hello.Application">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>you will see it start up as normal. You might also notice that the JVM memory requirements were computed and set as command line options inside the container. This is the same memory calculation that has been in use in Cloud Foundry build packs for many years. It represents significant research into the best choices for a range of JVM applications, including but not limited to Spring Boot applications, and the results are usually much better than the default setting from the JVM. You can customize the command line options and override the memory calculator using environment variables.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jib_maven_and_gradle_plugins">Jib Maven and Gradle Plugins</h3>
+<div class="paragraph">
+<p>Google has an open source tool called <a href="https://github.com/GoogleContainerTools/jib">Jib</a> that is relatively new, but quite interesting for a number of reasons. Probably the most interesting thing is that you don’t need docker to run it - it builds the image using the same standard output as you get from <code>docker build</code> but doesn’t use <code>docker</code> unless you ask it to - so it works in environments where docker is not installed (not uncommon in build servers). You also don’t need a <code>Dockerfile</code> (it would be ignored anyway), or anything in your <code>pom.xml</code> to get an image built in Maven (Gradle would require you to at least install the plugin in <code>build.gradle</code>).</p>
+</div>
+<div class="paragraph">
+<p>Another interesting feature of Jib is that it is opinionated about layers, and it optimizes them in a slightly different way than the multi-layer <code>Dockerfile</code> created above. Just like in the fat jar, Jib separates local application resources from dependencies, but it goes a step further and also puts snapshot dependencies into a separate layer, since they are more likely to change. There are configuration options for customizing the layout further.</p>
+</div>
+<div class="paragraph">
+<p>Example with Maven (without changing the <code>pom.xml</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ mvn com</span><span class="pun">.</span><span class="pln">google</span><span class="pun">.</span><span class="pln">cloud</span><span class="pun">.</span><span class="pln">tools</span><span class="pun">:</span><span class="pln">jib</span><span class="pun">-</span><span class="pln">maven</span><span class="pun">-</span><span class="pln">plugin</span><span class="pun">:</span><span class="pln">build </span><span class="pun">-</span><span class="typ">Dimage</span><span class="pun">=</span><span class="pln">myorg</span><span class="pun">/</span><span class="pln">myapp</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ mvn com.google.cloud.tools:jib-maven-plugin:build -Dimage=myorg/myapp">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To run the above command you will need to have permission to push to Dockerhub under the <code>myorg</code> repository prefix. If you have authenticated with <code>docker</code> on the command line, that will work from your local <code>~/.docker</code> configuration. You can also set up a Maven "server" authentication in your <code>~/.m2/settings.xml</code> (the <code>id</code> of the repository is significant):</p>
+</div>
+<div class="paragraph">
+<p><code>settings.xml</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">    </span><span class="tag">&lt;server&gt;</span><span class="pln">
+      </span><span class="tag">&lt;id&gt;</span><span class="pln">registry.hub.docker.com</span><span class="tag">&lt;/id&gt;</span><span class="pln">
+      </span><span class="tag">&lt;username&gt;</span><span class="pln">myorg</span><span class="tag">&lt;/username&gt;</span><span class="pln">
+      </span><span class="tag">&lt;password&gt;</span><span class="pln">...</span><span class="tag">&lt;/password&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/server&gt;</span></code><button class="copy-button button button-small animate" data-clipboard-text="    &lt;server&gt;
+      &lt;id&gt;registry.hub.docker.com&lt;/id&gt;
+      &lt;username&gt;myorg&lt;/username&gt;
+      &lt;password&gt;...&lt;/password&gt;
+    &lt;/server&gt;">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are other options, e.g. you can build locally against a docker daemon (like running <code>docker</code> on the command line), using the <code>dockerBuild</code> goal instead of <code>build</code>. Other container registries are also supported and for each one you will need to set up local authentication via docker or Maven settings.</p>
+</div>
+<div class="paragraph">
+<p>The gradle plugin has similar features, once you have it in your <code>build.gradle</code>, e.g.</p>
+</div>
+<div class="paragraph">
+<p><code>build.gradle</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code data-lang="groovy"><span class="pln">plugins </span><span class="pun">{</span><span class="pln">
+  </span><span class="pun">...</span><span class="pln">
+  id </span><span class="str">'com.google.cloud.tools.jib'</span><span class="pln"> version </span><span class="str">'1.8.0'</span><span class="pln">
+</span><span class="pun">}</span></code><button class="copy-button button button-small animate" data-clipboard-text="plugins {
+  ...
+  id &#39;com.google.cloud.tools.jib&#39; version &#39;1.8.0&#39;
+}">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or in the older style used in the Getting Started Guides:</p>
+</div>
+<div class="paragraph">
+<p><code>build.gradle</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code data-lang="groovy"><span class="pln">buildscript </span><span class="pun">{</span><span class="pln">
+    repositories </span><span class="pun">{</span><span class="pln">
+      maven </span><span class="pun">{</span><span class="pln">
+        url </span><span class="str">"https://plugins.gradle.org/m2/"</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      mavenCentral</span><span class="pun">()</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    dependencies </span><span class="pun">{</span><span class="pln">
+        classpath</span><span class="pun">(</span><span class="str">'org.springframework.boot:spring-boot-gradle-plugin:2.2.1.RELEASE'</span><span class="pun">)</span><span class="pln">
+        classpath</span><span class="pun">(</span><span class="str">'com.google.cloud.tools.jib:com.google.cloud.tools.jib.gradle.plugin:1.8.0'</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code><button class="copy-button button button-small animate" data-clipboard-text="buildscript {
+    repositories {
+      maven {
+        url &quot;https://plugins.gradle.org/m2/&quot;
+      }
+      mavenCentral()
+    }
+    dependencies {
+        classpath(&#39;org.springframework.boot:spring-boot-gradle-plugin:2.2.1.RELEASE&#39;)
+        classpath(&#39;com.google.cloud.tools.jib:com.google.cloud.tools.jib.gradle.plugin:1.8.0&#39;)
+    }
+}">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and then you can build an image with</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ </span><span class="pun">./</span><span class="pln">gradlew jib </span><span class="pun">--</span><span class="pln">image</span><span class="pun">=</span><span class="pln">myorg</span><span class="pun">/</span><span class="pln">myapp</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ ./gradlew jib --image=myorg/myapp">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As with the Maven build, if you have authenticated with <code>docker</code> on the command line, the image push will authenticate from your local <code>~/.docker</code> configuration.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_continuous_integration">Continuous Integration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Automation is part of every application lifecycle these days (or should be). The tools that people use to do the automation tend to be quite good at just invoking the build system from the source code. So if that gets you a docker image, and the environment in the build agents is sufficiently aligned with developer’s own environment, that might be good enough. Authenticating to the docker registry is likely to be the biggest challenge, but there are features in all the automation tools to help with that.</p>
+</div>
+<div class="paragraph">
+<p>However, sometimes it is better to leave container creation completely to an automation layer, in which case the user’s code might not need to be polluted. Container creation is tricky, and developers sometimes don’t really care about it. If the user code is cleaner there is more chance that a different tool can "do the right thing", applying security fixes, optimizing caches etc. There are multiple options for automation and they will all come with some features related to containers these days. We are just going to look at a couple.</p>
+</div>
+<div class="sect2">
+<h3 id="_concourse">Concourse</h3>
+<div class="paragraph">
+<p><a href="https://concourse-ci.org/">Concourse</a> is a pipeline-based automation platform that can be used for CI and CD. It is heavily used inside Pivotal and the main authors of the project work there. Everything in Concourse is stateless and everything runs in a container, except the CLI. Since running containers is the main order of business for the automation pipelines, creating containers is well supported. The <a href="https://github.com/concourse/docker-image-resource">Docker Image Resource</a> is responsible for keeping the output state of your build up to date, if it is a container image.</p>
+</div>
+<div class="paragraph">
+<p>Here’s an example pipeline that builds a docker image for the sample above, assuming it is in github at <code>myorg/myapp</code> and has a <code>Dockerfile</code> at the root and a build task declaration in <code>src/main/ci/build.yml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">resources</span><span class="pun">:</span><span class="pln">
+</span><span class="pun">-</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> myapp
+  type</span><span class="pun">:</span><span class="pln"> git
+  source</span><span class="pun">:</span><span class="pln">
+    uri</span><span class="pun">:</span><span class="pln"> https</span><span class="pun">:</span><span class="com">//github.com/myorg/myapp.git</span><span class="pln">
+</span><span class="pun">-</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> myapp</span><span class="pun">-</span><span class="pln">image
+  type</span><span class="pun">:</span><span class="pln"> docker</span><span class="pun">-</span><span class="pln">image
+  source</span><span class="pun">:</span><span class="pln">
+    email</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{{</span><span class="pln">docker</span><span class="pun">-</span><span class="pln">hub</span><span class="pun">-</span><span class="pln">email</span><span class="pun">}}</span><span class="pln">
+    username</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{{</span><span class="pln">docker</span><span class="pun">-</span><span class="pln">hub</span><span class="pun">-</span><span class="pln">username</span><span class="pun">}}</span><span class="pln">
+    password</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{{</span><span class="pln">docker</span><span class="pun">-</span><span class="pln">hub</span><span class="pun">-</span><span class="pln">password</span><span class="pun">}}</span><span class="pln">
+    repository</span><span class="pun">:</span><span class="pln"> myorg</span><span class="pun">/</span><span class="pln">myapp
+
+jobs</span><span class="pun">:</span><span class="pln">
+</span><span class="pun">-</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> main
+  plan</span><span class="pun">:</span><span class="pln">
+  </span><span class="pun">-</span><span class="pln"> task</span><span class="pun">:</span><span class="pln"> build
+    file</span><span class="pun">:</span><span class="pln"> myapp</span><span class="pun">/</span><span class="pln">src</span><span class="pun">/</span><span class="pln">main</span><span class="pun">/</span><span class="pln">ci</span><span class="pun">/</span><span class="pln">build</span><span class="pun">.</span><span class="pln">yml
+  </span><span class="pun">-</span><span class="pln"> put</span><span class="pun">:</span><span class="pln"> myapp</span><span class="pun">-</span><span class="pln">image
+    </span><span class="kwd">params</span><span class="pun">:</span><span class="pln">
+      build</span><span class="pun">:</span><span class="pln"> myapp</span></code><button class="copy-button button button-small animate" data-clipboard-text="resources:
+- name: myapp
+  type: git
+  source:
+    uri: https://github.com/myorg/myapp.git
+- name: myapp-image
+  type: docker-image
+  source:
+    email: {{docker-hub-email}}
+    username: {{docker-hub-username}}
+    password: {{docker-hub-password}}
+    repository: myorg/myapp
+
+jobs:
+- name: main
+  plan:
+  - task: build
+    file: myapp/src/main/ci/build.yml
+  - put: myapp-image
+    params:
+      build: myapp">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The structure of a pipeline is very declarative: you define "resources" (which are either input or output or both), and "jobs" (which use and apply actions to resources). If any of the input resources changes a new build is triggered. If any of the output resources changes during a job, then it is updated.</p>
+</div>
+<div class="paragraph">
+<p>The pipeline could be defined in a different place than the application source code. And for a generic build setup the task declarations could be centralized or externalized as well. This allows some separation of concerns between development and automation, if that’s the way you roll.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jenkins">Jenkins</h3>
+<div class="paragraph">
+<p><a href="https://jenkins.io/">Jenkins</a> is another popular automation server. It has a huge range of features, but one that is the closest to the other automation samples here is the <a href="https://jenkins.io/doc/book/pipeline/docker/">pipeline</a> feature. Here’s a <code>Jenkinsfile</code> that builds a Spring Boot project with Maven and then uses a <code>Dockerfile</code> to build an image and push it to a repository:</p>
+</div>
+<div class="paragraph">
+<p><code>Jenkinsfile</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">node </span><span class="pun">{</span><span class="pln">
+    checkout scm
+    sh </span><span class="str">'./mvnw -B -DskipTests clean package'</span><span class="pln">
+    docker</span><span class="pun">.</span><span class="pln">build</span><span class="pun">(</span><span class="str">"myorg/myapp"</span><span class="pun">).</span><span class="pln">push</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">}</span></code><button class="copy-button button button-small animate" data-clipboard-text="node {
+    checkout scm
+    sh &#39;./mvnw -B -DskipTests clean package&#39;
+    docker.build(&quot;myorg/myapp&quot;).push()
+}">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For a (realistic) docker repository that needs authentication in the build server, you can add credentials to the <code>docker</code> object above using <code>docker.withCredentials(…​)</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_buildpacks">Buildpacks</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tbody>
+<tr>
+<td class="icon"> <i class="fa icon-note" title="Note"></i> </td>
+<td class="content"> The Spring Boot Maven and Gradle plugins use buildpacks in exactly the same way that the <code>pack</code> CLI does in the examples below. The main difference is that the plugins use <code>docker</code> to run the builds, whereas <code>pack</code> doesn’t need to. The resulting images are identical given the same inputs. </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://www.cloudfoundry.org/">Cloud Foundry</a> has used containers internally for many years now, and part of the technology used to transform user code into containers is Build Packs, an idea originally borrowed from <a href="https://www.heroku.com/">Heroku</a>. The current generation of buildpacks (v2) generates generic binary output that is assembled into a container by the platform. The <a href="https://buildpacks.io/">new generation of buildpacks</a> (v3) is a collaboration between Heroku and other companies including Pivotal, and it builds container images directly and explicitly. This is very interesting for developers and operators. Developers don’t need to care so much about the details of how to build a container, but they can easily create one if they need to. Buildpacks also have lots of features for caching build results and dependencies, so often a buildpack will run much quicker than a native docker build. Operators can scan the containers to audit their contents and transform them to patch them for security updates. And you can run the buildpacks locally (e.g. on a developer machine, or in a CI service), or in a platform like Cloud Foundry.</p>
+</div>
+<div class="paragraph">
+<p>The output from a buildpack lifecycle is a container image, but you don’t need docker or a <code>Dockerfile</code>, so it’s CI and automation friendly. The filesystem layers in the output image are controlled by the buildpack, and typically many optimizations will be made without the developer having to know or care about them. There is also an <a href="https://en.wikipedia.org/wiki/Application_binary_interface">Application Binary Interface</a> between the lower level layers, like the base image containing the operating system, and the upper layers, containing middleware and language specific dependencies. This makes it possible for a platform, like Cloud Foundry, to patch lower layers if there are security updates without affecting the integrity and functionality of the application.</p>
+</div>
+<div class="paragraph">
+<p>To give you an idea of the features of a buildpack here is an example using the <a href="https://github.com/buildpack/pack">Pack CLI</a> from the command line (it would work with the sample app we have been using in thus guide, no need for a <code>Dockerfile</code> or any special build configuration):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight prettyprinted" style=""><code><span class="pln">$ pack build myorg</span><span class="pun">/</span><span class="pln">myapp </span><span class="pun">--</span><span class="pln">builder</span><span class="pun">=</span><span class="pln">cloudfoundry</span><span class="pun">/</span><span class="pln">cnb</span><span class="pun">:</span><span class="pln">bionic </span><span class="pun">--</span><span class="pln">path</span><span class="pun">=.</span><span class="pln">
+</span><span class="lit">2018</span><span class="pun">/</span><span class="lit">11</span><span class="pun">/</span><span class="lit">07</span><span class="pln"> </span><span class="lit">09</span><span class="pun">:</span><span class="lit">54</span><span class="pun">:</span><span class="lit">48</span><span class="pln"> </span><span class="typ">Pulling</span><span class="pln"> builder image </span><span class="str">'cloudfoundry/cnb:bionic'</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">use</span><span class="pln"> </span><span class="pun">--</span><span class="kwd">no</span><span class="pun">-</span><span class="pln">pull flag to skip </span><span class="kwd">this</span><span class="pln"> step</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">2018</span><span class="pun">/</span><span class="lit">11</span><span class="pun">/</span><span class="lit">07</span><span class="pln"> </span><span class="lit">09</span><span class="pun">:</span><span class="lit">54</span><span class="pun">:</span><span class="lit">49</span><span class="pln"> </span><span class="typ">Selected</span><span class="pln"> run image </span><span class="str">'packs/run'</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> stack </span><span class="str">'io.buildpacks.stacks.bionic'</span><span class="pln">
+</span><span class="lit">2018</span><span class="pun">/</span><span class="lit">11</span><span class="pun">/</span><span class="lit">07</span><span class="pln"> </span><span class="lit">09</span><span class="pun">:</span><span class="lit">54</span><span class="pun">:</span><span class="lit">49</span><span class="pln"> </span><span class="typ">Pulling</span><span class="pln"> run image </span><span class="str">'packs/run'</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">use</span><span class="pln"> </span><span class="pun">--</span><span class="kwd">no</span><span class="pun">-</span><span class="pln">pull flag to skip </span><span class="kwd">this</span><span class="pln"> step</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">***</span><span class="pln"> DETECTING</span><span class="pun">:</span><span class="pln">
+</span><span class="lit">2018</span><span class="pun">/</span><span class="lit">11</span><span class="pun">/</span><span class="lit">07</span><span class="pln"> </span><span class="lit">09</span><span class="pun">:</span><span class="lit">54</span><span class="pun">:</span><span class="lit">52</span><span class="pln"> </span><span class="typ">Group</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Cloud</span><span class="pln"> </span><span class="typ">Foundry</span><span class="pln"> </span><span class="typ">OpenJDK</span><span class="pln"> </span><span class="typ">Buildpack</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">pass</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="typ">Cloud</span><span class="pln"> </span><span class="typ">Foundry</span><span class="pln"> </span><span class="typ">Build</span><span class="pln"> </span><span class="typ">System</span><span class="pln"> </span><span class="typ">Buildpack</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">pass</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="typ">Cloud</span><span class="pln"> </span><span class="typ">Foundry</span><span class="pln"> JVM </span><span class="typ">Application</span><span class="pln"> </span><span class="typ">Buildpack</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">pass</span><span class="pln">
+</span><span class="pun">***</span><span class="pln"> ANALYZING</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Reading</span><span class="pln"> information </span><span class="kwd">from</span><span class="pln"> previous image </span><span class="kwd">for</span><span class="pln"> possible re</span><span class="pun">-</span><span class="kwd">use</span><span class="pln">
+</span><span class="pun">***</span><span class="pln"> BUILDING</span><span class="pun">:</span><span class="pln">
+</span><span class="pun">-----&gt;</span><span class="pln"> </span><span class="typ">Cloud</span><span class="pln"> </span><span class="typ">Foundry</span><span class="pln"> </span><span class="typ">OpenJDK</span><span class="pln"> </span><span class="typ">Buildpack</span><span class="pln"> </span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pun">-</span><span class="pln">BUILD</span><span class="pun">-</span><span class="pln">SNAPSHOT
+</span><span class="pun">-----&gt;</span><span class="pln"> </span><span class="typ">OpenJDK</span><span class="pln"> JDK </span><span class="lit">1.8</span><span class="pun">.</span><span class="lit">192</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Reusing</span><span class="pln"> cached dependency
+</span><span class="pun">-----&gt;</span><span class="pln"> </span><span class="typ">OpenJDK</span><span class="pln"> JRE </span><span class="lit">1.8</span><span class="pun">.</span><span class="lit">192</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Reusing</span><span class="pln"> cached launch layer
+
+</span><span class="pun">-----&gt;</span><span class="pln"> </span><span class="typ">Cloud</span><span class="pln"> </span><span class="typ">Foundry</span><span class="pln"> </span><span class="typ">Build</span><span class="pln"> </span><span class="typ">System</span><span class="pln"> </span><span class="typ">Buildpack</span><span class="pln"> </span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pun">-</span><span class="pln">BUILD</span><span class="pun">-</span><span class="pln">SNAPSHOT
+</span><span class="pun">-----&gt;</span><span class="pln"> </span><span class="typ">Using</span><span class="pln"> </span><span class="typ">Maven</span><span class="pln"> wrapper
+       </span><span class="typ">Linking</span><span class="pln"> </span><span class="typ">Maven</span><span class="pln"> </span><span class="typ">Cache</span><span class="pln"> to </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">pack</span><span class="pun">/.</span><span class="pln">m2
+</span><span class="pun">-----&gt;</span><span class="pln"> </span><span class="typ">Building</span><span class="pln"> application
+       </span><span class="typ">Running</span><span class="pln"> </span><span class="pun">/</span><span class="pln">workspace</span><span class="pun">/</span><span class="pln">app</span><span class="pun">/</span><span class="pln">mvnw </span><span class="pun">-</span><span class="typ">Dmaven</span><span class="pun">.</span><span class="pln">test</span><span class="pun">.</span><span class="pln">skip</span><span class="pun">=</span><span class="kwd">true</span><span class="pln"> </span><span class="kwd">package</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">
+</span><span class="pun">---&gt;</span><span class="pln"> </span><span class="typ">Running</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> e6c4a94240c2
+</span><span class="pun">---&gt;</span><span class="pln"> </span><span class="lit">4f3a96a4f38c</span><span class="pln">
+</span><span class="pun">---&gt;</span><span class="pln"> </span><span class="lit">4f3a96a4f38c</span><span class="pln">
+</span><span class="typ">Successfully</span><span class="pln"> built </span><span class="lit">4f3a96a4f38c</span><span class="pln">
+</span><span class="typ">Successfully</span><span class="pln"> tagged myorg</span><span class="pun">/</span><span class="pln">myapp</span><span class="pun">:</span><span class="pln">latest
+$ docker run </span><span class="pun">-</span><span class="pln">p </span><span class="lit">8080</span><span class="pun">:</span><span class="lit">8080</span><span class="pln"> myorg</span><span class="pun">/</span><span class="pln">myapp
+  </span><span class="pun">.</span><span class="pln">   ____          _            __ _ _
+ </span><span class="pun">/</span><span class="pln">\\ </span><span class="pun">/</span><span class="pln"> ___</span><span class="str">'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '</span><span class="pln">_ </span><span class="pun">|</span><span class="pln"> </span><span class="str">'_| | '</span><span class="pln">_ \/ _</span><span class="str">` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.0.RELEASE)
+
+2018-11-07 09:41:06.390  INFO 1 --- [main] hello.Application: Starting Application on 1989fb9a00a4 with PID 1 (/workspace/app/BOOT-INF/classes started by pack in /workspace/app)
+...</span></code><button class="copy-button button button-small animate" data-clipboard-text="$ pack build myorg/myapp --builder=cloudfoundry/cnb:bionic --path=.
+2018/11/07 09:54:48 Pulling builder image &#39;cloudfoundry/cnb:bionic&#39; (use --no-pull flag to skip this step)
+2018/11/07 09:54:49 Selected run image &#39;packs/run&#39; from stack &#39;io.buildpacks.stacks.bionic&#39;
+2018/11/07 09:54:49 Pulling run image &#39;packs/run&#39; (use --no-pull flag to skip this step)
+*** DETECTING:
+2018/11/07 09:54:52 Group: Cloud Foundry OpenJDK Buildpack: pass | Cloud Foundry Build System Buildpack: pass | Cloud Foundry JVM Application Buildpack: pass
+*** ANALYZING: Reading information from previous image for possible re-use
+*** BUILDING:
+-----&gt; Cloud Foundry OpenJDK Buildpack 1.0.0-BUILD-SNAPSHOT
+-----&gt; OpenJDK JDK 1.8.192: Reusing cached dependency
+-----&gt; OpenJDK JRE 1.8.192: Reusing cached launch layer
+
+-----&gt; Cloud Foundry Build System Buildpack 1.0.0-BUILD-SNAPSHOT
+-----&gt; Using Maven wrapper
+       Linking Maven Cache to /home/pack/.m2
+-----&gt; Building application
+       Running /workspace/app/mvnw -Dmaven.test.skip=true package
+...
+---&gt; Running in e6c4a94240c2
+---&gt; 4f3a96a4f38c
+---&gt; 4f3a96a4f38c
+Successfully built 4f3a96a4f38c
+Successfully tagged myorg/myapp:latest
+$ docker run -p 8080:8080 myorg/myapp
+  .   ____          _            __ _ _
+ /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  &#39;  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.0.RELEASE)
+
+2018-11-07 09:41:06.390  INFO 1 --- [main] hello.Application: Starting Application on 1989fb9a00a4 with PID 1 (/workspace/app/BOOT-INF/classes started by pack in /workspace/app)
+...">Copy</button></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>--builder</code> is a docker image that runs the buildpack lifecycle - typically it would be a shared resource for all developers, or all developers on a single platform. You can set the default builder on the command line (creates a file in <code>~/.pack</code>) and then omit that flag from subsequent builds.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody>
+<tr>
+<td class="icon"> <i class="fa icon-note" title="Note"></i> </td>
+<td class="content"> The <code>cloudfoundry/cnb:bionic</code> builder also knows how to build an image from an executable jar file, so you can build using <code>mvnw</code> first and then point the <code>--path</code> to the jar file for the same result. </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_knative">Knative</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Another new project in the container and platform space is <a href="https://cloud.google.com/knative/">Knative</a>. Knative is a lot of things, but if you are not familiar with it you can think of it as a building block for building a serverless platform. It is built on <a href="https://kubernetes.io/">Kubernetes</a> so ultimately it consumes container images, and turns them into applications or "services" on the platform. One of the main features it has, though, is the ability to consume source code and build the container for you, making it more developer and operator friendly. <a href="https://github.com/knative/build">Knative Build</a> is the component that does this and is itself a flexible platform for transforming user code into containers - you can do it in pretty much any way you like. Some templates are provided with common patterns like Maven and Gradle builds, and multi-stage docker builds using <a href="https://github.com/GoogleContainerTools/kaniko">Kaniko</a>. There is also a template that use <a href="https://github.com/knative/build-templates/tree/master/buildpack">Buildpacks</a> which is very interesting for us, since buildpacks have always had good support for Spring Boot.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_closing">Closing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This guide has presented a lot of options for building container images for Spring Boot applications. All of them are completely valid choices, and it is now up to you to decide which one you need. Your first question should be "do I really need to build a container image?" If the answer is "yes" then your choices will likely be driven by efficiency and cacheability, and by separation of concerns. Do you want to insulate developers from needing to know too much about how container images are created? Do you want to make developers responsible for updating images when operating system and middleware vulnerabilities need to be patched? Or maybe developers need complete control over the whole process and they have all the tools and knowledge they need.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+<aside class="span4 content-right-pane--container mobile-left-pane" id="sidebar">
+<a class="ci-status desktop-only" href="https://travis-ci.org/spring-guides/top-spring-boot-docker">
+<img src="./Topical Guide _ Spring Boot Docker_files/unknown.svg">
+</a>
+<div class="right-pane-widget--container desktop-only">
+<div class="github-actions https">
+<h2>Get the Code</h2>
+<div class="btn-group">
+<button class="btn" data-protocol="https">HTTPS</button>
+<button class="btn" data-protocol="ssh">SSH</button>
+</div>
+<div class="clone-url https">
+<input id="clone-url-https" readonly="readonly" type="text" value="https://github.com/spring-guides/top-spring-boot-docker.git">
+<button class="copy-button github" data-toggle="tooltip" data-clipboard-text="https://github.com/spring-guides/top-spring-boot-docker.git"></button>
+</div>
+<div class="clone-url ssh">
+<input id="clone-url-ssh" readonly="readonly" type="text" value="git@github.com:spring-guides/top-spring-boot-docker.git">
+<button class="copy-button github" data-toggle="tooltip" data-clipboard-text="git@github.com:spring-guides/top-spring-boot-docker.git"></button>
+</div>
+<a class="github_download btn btn-black uppercase" href="https://github.com/spring-guides/top-spring-boot-docker/archive/master.zip">Download ZIP</a>
+<a class="gs-guide-import" href="https://github.com/spring-guides/top-spring-boot-docker.git">Import into STS</a>
+<div class="go-to-repo--container">
+<a href="https://github.com/spring-guides/top-spring-boot-docker"><i class="fab fa-github"></i>Go To Repo</a>
+</div>
+</div>
+</div>
+<div class="right-pane-widget--container">
+<div>
+<h3><a name="table-of-contents" class="anchor" href="https://spring.io/guides/topicals/spring-boot-docker/#table-of-contents"></a>Table of contents</h3>
+<div><ul class="sectlevel1">
+<li><a href="https://spring.io/guides/topicals/spring-boot-docker/#_a_basic_dockerfile">A Basic Dockerfile</a> </li>
+<li><a href="https://spring.io/guides/topicals/spring-boot-docker/#_a_better_dockerfile">A Better Dockerfile</a></li>
+<li><a href="https://spring.io/guides/topicals/spring-boot-docker/#_tweaks">Tweaks</a></li>
+<li><a href="https://spring.io/guides/topicals/spring-boot-docker/#_multi_stage_build">Multi-Stage Build</a> </li>
+<li><a href="https://spring.io/guides/topicals/spring-boot-docker/#_security_aspects">Security Aspects</a></li>
+<li><a href="https://spring.io/guides/topicals/spring-boot-docker/#_build_plugins">Build Plugins</a> </li>
+<li><a href="https://spring.io/guides/topicals/spring-boot-docker/#_continuous_integration">Continuous Integration</a> </li>
+<li><a href="https://spring.io/guides/topicals/spring-boot-docker/#_buildpacks">Buildpacks</a></li>
+<li><a href="https://spring.io/guides/topicals/spring-boot-docker/#_knative">Knative</a></li>
+<li><a href="https://spring.io/guides/topicals/spring-boot-docker/#_closing">Closing</a></li>
+</ul></div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</div>
+</div><script type="text/javascript" id="" src="./Topical Guide _ Spring Boot Docker_files/notice"></script>
+
+<footer>
+<div id="top">
+<div class="container flex jc-between mx-auto">
+<div id="green-circle-sm"></div>
+
+<img id="circle-grid" src="./Topical Guide _ Spring Boot Docker_files/footer-circles-dc4b03d4edc1f3b7b42a45bdcce411c8.svg" alt="">
+<div class="third">
+<h2 class="bold h3 antialiased">Get ahead</h2>
+<p>VMware offers training and certification to turbo-charge your progress.</p>
+<a href="https://spring.io/training" class="blue link-animate">Learn more</a>
+</div>
+<div class="third">
+<h2 class="bold h3 antialiased">Get support</h2>
+<p>Spring Runtime offers support and binaries for OpenJDK™, Spring, and Apache Tomcat® in one simple subscription.</p>
+<a href="https://spring.io/support" class="blue link-animate">Learn more</a>
+</div>
+<div class="third">
+<h2 class="bold h3 antialiased">Upcoming events</h2>
+<div class="footer-event">
+<a href="https://www.vmworld.com/en/tracks/App-Modernization.html?src=ds_5f45a5d9ea3b5&amp;cid=7012H000001xDgF" class="blue link-animate">VMworld</a>
+<p>App modernization. Kubernetes. Microservices.</p>
+</div>
+<br>
+<div class="footer-event">
+<a href="https://springonetour.io/" class="blue link-animate">SpringOne Tour</a>
+<p>The best Cloud-Native Java content brought directly to you.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="bottom">
+<div id="bottom-top">
+<div id="footer-over" class="mx-auto">
+<div class="container flex jc-between mx-auto">
+<div class="left">
+<div class="flex jc-between">
+<div class="footer-column">
+<p><strong><a href="https://spring.io/why-spring">Why Spring</a></strong></p>
+<ul>
+<li><a href="https://spring.io/microservices">Microservices</a></li>
+<li><a href="https://spring.io/reactive">Reactive</a></li>
+<li><a href="https://spring.io/event-driven">Event Driven</a></li>
+<li><a href="https://spring.io/cloud">Cloud</a></li>
+<li><a href="https://spring.io/web-applications">Web Applications</a></li>
+<li><a href="https://spring.io/serverless">Serverless</a></li>
+<li><a href="https://spring.io/batch">Batch</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<p><strong><a href="https://spring.io/learn">Learn</a></strong></p>
+<ul>
+<li><a href="https://spring.io/quickstart">Quickstart</a></li>
+<li><a href="https://spring.io/guides">Guides</a></li>
+<li><a href="https://spring.io/blog">Blog</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<p><strong><a href="https://spring.io/community">Community</a></strong></p>
+<ul>
+<li><a href="https://spring.io/events">Events</a></li>
+<li><a href="https://spring.io/team">Team</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<p><strong><a href="https://spring.io/projects">Projects</a></strong></p>
+<p><strong><a href="https://spring.io/training">Training</a></strong></p>
+<p><strong><a href="https://spring.io/support">Support</a></strong></p>
+<p><strong><a href="https://spring.io/thank-you">Thank You</a></strong></p>
+</div>
+</div>
+</div>
+<div class="right">
+<h2 class="h3 mb-2 antialiased hide">Get the Spring newsletter</h2>
+<h2 class="h3 mb-2 antialiased confirmation">Thank you!</h2>
+<script src="./Topical Guide _ Spring Boot Docker_files/forms2.min.js.download"></script>
+<form id="mktoForm_4723" novalidate="novalidate" class="mktoForm mktoHasWidth mktoLayoutLeft" style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: rgb(51, 51, 51); width: 419px;"><style type="text/css">.mktoForm .mktoButtonWrap.mktoSimple .mktoButton {
+color:#fff;
+border:1px solid #75ae4c;
+padding:0.4em 1em;
+font-size:1em;
+background-color:#99c47c;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#99c47c), to(#75ae4c));
+background-image: -webkit-linear-gradient(top, #99c47c, #75ae4c);
+background-image: -moz-linear-gradient(top, #99c47c, #75ae4c);
+background-image: linear-gradient(to bottom, #99c47c, #75ae4c);
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:hover {
+border:1px solid #447f19;
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:focus {
+outline:none;
+border:1px solid #447f19;
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:active{
+background-color:#75ae4c;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#75ae4c), to(#99c47c));
+background-image: -webkit-linear-gradient(top, #75ae4c, #99c47c);
+background-image: -moz-linear-gradient(top, #75ae4c, #99c47c);
+background-image: linear-gradient(to bottom, #75ae4c, #99c47c);
+}
+</style><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="Email" id="LblEmail" class="mktoLabel mktoHasWidth" style="width: 0px;"><div class="mktoAsterix">*</div></label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="Email" name="Email" placeholder="Email Address" maxlength="255" aria-describedby="ValidMsgEmail" aria-labelledby="LblEmail InstructEmail" type="email" class="mktoField mktoEmailField mktoHasWidth mktoRequired" aria-required="true" style="width: 150px;"><span id="InstructEmail" tabindex="-1" class="mktoInstruction"></span><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="gdprconsent" id="Lblgdprconsent" class="mktoLabel mktoHasWidth" style="width: 0px;"><div class="mktoAsterix">*</div></label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><div class="mktoLogicalField mktoCheckboxList mktoHasWidth mktoRequired" style="width: 280px;"><input name="gdprconsent" id="mktoCheckbox_82901_0" type="checkbox" value="yes" aria-required="true" aria-describedby="ValidMsggdprconsent" aria-labelledby="Lblgdprconsent LblmktoCheckbox_82901_0 Instructgdprconsent" class="mktoField"><label for="mktoCheckbox_82901_0" id="LblmktoCheckbox_82901_0">Yes, I would like to be contacted by The Spring Team and VMware for newsletters, promotions and events per the terms of VMware’s <a href="https://www.vmware.com/help/privacy.html" target="_blank">Privacy Policy</a> </label></div><span id="Instructgdprconsent" tabindex="-1" class="mktoInstruction"></span><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoButtonRow"><span class="mktoButtonWrap mktoSimple" style="margin-left: 120px;"><button type="submit" class="mktoButton">Subscribe</button></span></div><input type="hidden" name="formid" class="mktoField mktoFieldDescriptor" value="4723"><input type="hidden" name="munchkinId" class="mktoField mktoFieldDescriptor" value="625-IUJ-009"></form>
+<script>
+                            MktoForms2.loadForm("https://app-sj05.marketo.com", "625-IUJ-009", 4723 , function(form){
+                                form.onSuccess(function(values, followUpUrl){
+                                    form.getFormElem().hide();
+                                    $('.hide').hide();
+                                    $('.confirmation').show();
+                                    return false;
+                                });
+                            });
+                        </script>
+</div>
+</div>
+</div>
+</div>
+<div id="bottom-bottom">
+<div class="flex container jc-between">
+<div id="spring-links">
+<img id="springlogo-foot" src="./Topical Guide _ Spring Boot Docker_files/spring-logo-9146a4d3298760c2e7e49595184e1975.svg" alt="Spring">
+<p class="smallest antialiased">© <script>var d = new Date();
+                    document.write(d.getFullYear());</script>2021 <a href="https://www.vmware.com/">VMware</a>, Inc. or its affiliates. <a href="https://www.vmware.com/help/legal.html">Terms of Use</a> • <a href="https://www.vmware.com/help/privacy.html" rel="noopener noreferrer">Privacy</a> • <a href="https://spring.io/trademarks">Trademark Guidelines</a> <span id="thank-you-mobile">• <a href="https://spring.io/thank-you">Thank you</a></span> <span id="teconsent"></span></p>
+<p class="smallest antialiased">Apache®, Apache Tomcat®, Apache Kafka®, Apache Cassandra™, and Apache Geode™ are trademarks or registered trademarks of the Apache Software Foundation in the United States and/or other countries. Java™, Java™ SE, Java™ EE, and OpenJDK™ are trademarks of Oracle and/or its affiliates. Kubernetes® is a registered trademark of the Linux Foundation in the United States and other countries. Linux® is the registered trademark of Linus Torvalds in the United States and other countries. Windows® and Microsoft® Azure are registered trademarks of Microsoft Corporation. “AWS” and “Amazon Web Services” are trademarks or registered trademarks of Amazon.com Inc. or its affiliates. All other trademarks and copyrights are property of their respective owners and are only mentioned for informative purposes. Other names may be trademarks of their respective owners.</p>
+</div>
+<div id="social-icons" class="flex jc-between">
+<a href="https://www.youtube.com/user/SpringSourceDev" title="Youtube"><svg id="youtube-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle class="cls-1" cx="20" cy="20" r="20"></circle><path class="cls-2" d="M30.91,14.53a2.89,2.89,0,0,0-2-2C27.12,12,20,12,20,12s-7.12,0-8.9.47a2.9,2.9,0,0,0-2,2A30.56,30.56,0,0,0,8.63,20a30.44,30.44,0,0,0,.46,5.47,2.89,2.89,0,0,0,2,2C12.9,28,20,28,20,28s7.12,0,8.9-.47a2.87,2.87,0,0,0,2-2A30.56,30.56,0,0,0,31.37,20,28.88,28.88,0,0,0,30.91,14.53ZM17.73,23.41V16.59L23.65,20Z"></path></svg></a>
+<a href="https://github.com/spring-projects" title="Github"><svg id="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.93 75.93"><path class="cls-1" d="M38,0a38,38,0,1,0,38,38A38,38,0,0,0,38,0Z"></path><path class="cls-2" d="M38,15.59A22.95,22.95,0,0,0,30.71,60.3c1.15.21,1.57-.5,1.57-1.11s0-2,0-3.9c-6.38,1.39-7.73-3.07-7.73-3.07A6.09,6.09,0,0,0,22,48.86c-2.09-1.42.15-1.39.15-1.39a4.81,4.81,0,0,1,3.52,2.36c2,3.5,5.37,2.49,6.67,1.91a4.87,4.87,0,0,1,1.46-3.07c-5.09-.58-10.45-2.55-10.45-11.34a8.84,8.84,0,0,1,2.36-6.15,8.29,8.29,0,0,1,.23-6.07s1.92-.62,6.3,2.35a21.82,21.82,0,0,1,11.49,0c4.38-3,6.3-2.35,6.3-2.35a8.29,8.29,0,0,1,.23,6.07,8.84,8.84,0,0,1,2.36,6.15c0,8.81-5.37,10.75-10.48,11.32a5.46,5.46,0,0,1,1.56,4.25c0,3.07,0,5.54,0,6.29s.42,1.33,1.58,1.1A22.94,22.94,0,0,0,38,15.59Z"></path></svg></a>
+<a href="https://twitter.com/springcentral" title="Twitter"><svg id="twitter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.93 75.93"><circle class="cls-1" cx="37.97" cy="37.97" r="37.97"></circle><path id="Twitter-2" data-name="Twitter" class="cls-2" d="M55.2,22.73a15.43,15.43,0,0,1-4.88,1.91,7.56,7.56,0,0,0-5.61-2.49A7.78,7.78,0,0,0,37,30a7.56,7.56,0,0,0,.2,1.79,21.63,21.63,0,0,1-15.84-8.23,8,8,0,0,0,2.37,10.52,7.66,7.66,0,0,1-3.48-1v.09A7.84,7.84,0,0,0,26.45,41a7.54,7.54,0,0,1-2,.28A7.64,7.64,0,0,1,23,41.09a7.71,7.71,0,0,0,7.18,5.47,15.21,15.21,0,0,1-9.55,3.37,15.78,15.78,0,0,1-1.83-.11,21.41,21.41,0,0,0,11.78,3.54c14.13,0,21.86-12,21.86-22.42,0-.34,0-.68,0-1a15.67,15.67,0,0,0,3.83-4.08,14.9,14.9,0,0,1-4.41,1.24A7.8,7.8,0,0,0,55.2,22.73Z"></path></svg></a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script src="./Topical Guide _ Spring Boot Docker_files/main-0c8620f9bfc02ced83daef5cff697298.js.download"></script>
+
+
+<div id="mktoStyleLoaded" style="display: none; border-top-color: rgb(18, 52, 86);"></div><form novalidate="novalidate" class="mktoForm mktoHasWidth mktoLayoutLeft" style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: rgb(51, 51, 51); visibility: hidden; position: absolute; top: -500px; left: -1000px; width: 1903px;"></form><iframe name="mktoFormsXDIframe0.9023831747183242" id="MktoForms2XDIframe" src="./Topical Guide _ Spring Boot Docker_files/XDFrame.html" style="display: none;"></iframe></body></html>
