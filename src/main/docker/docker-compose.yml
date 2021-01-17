@@ -1,0 +1,10 @@
+version: '3'
+services:
+  springboot-1:
+    image: 'springbootwithworkdir'
+    ports:
+      - "8081:8080"
+  springboot-2:
+    image: 'springbootwithworkdir'
+    ports:
+      - "8080:8080"
