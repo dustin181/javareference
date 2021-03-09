@@ -56,12 +56,12 @@ public class TestReduceCollections {
 //        stream.map(String::toUpperCase).forEach(System.out::println);
 //
 //        int[] numbers = {2, 3, 5, 7, 11, 13};
-//        int sum = Arrays.stream(numbers).sum();
+//        int sum = arrays.stream(numbers).sum();
 //
 //        long uniqueWords = 0;
 //        try(Stream<String> lines =
 //                    Files.lines(Paths.get("data.txt"), Charset.defaultCharset())){
-//            uniqueWords = lines.flatMap(line -> Arrays.stream(line.split(" ")))
+//            uniqueWords = lines.flatMap(line -> arrays.stream(line.split(" ")))
 //                    .distinct()
 //                    .count();
 //        }

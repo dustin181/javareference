@@ -14,7 +14,7 @@ public class MapSortByValueExample {
                 .distinct()
                 .map(s -> s.getContent())
                 .map(s -> s.split((" ")))
-                .flatMap(s -> Arrays.stream(s))
+                .flatMap(s -> arrays.stream(s))
                 .filter(s -> StringUtils.isAllUpperCase(s))
                 .filter(s -> !excludeList.contains(s))
                 .collect(toMap(
