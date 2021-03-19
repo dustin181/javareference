@@ -35,7 +35,7 @@ https://spring.io/guides/topicals/spring-boot-docker/
 
 ******************
 #delete everything (containers, images, networks)
-docker system prune
+docker system prune -a --volumes
 
 docker logs <container id>
 
