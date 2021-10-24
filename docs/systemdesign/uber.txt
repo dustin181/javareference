@@ -1,0 +1,105 @@
+1) Functional Requirements:
+a) need an account whether you are a passenger or a driver
+b) passenger should be able to see his location and nearby drivers
+c) passenger should be able to request ride
+d) passenger should be able to see ETA for destination
+e) passenger should be able to see previous trips
+f) driver should be able to signal that he is available for a trip request
+g) driver should receive trip requests showing passengers that are near to him
+h) passenger can see eta for driver
+i) when passenger and driver are in a trip together they can see each other's location
+j) Drivers can mark trip completion
+k) Drivers and passengers can rate each other
+l) Analytics and monitoring
+
+
+2) Nonfunctional requirements
+a) Highly Available
+b) Matching between drivers and passengers should be fast
+c) Strong Consistency for everything except ratings
+d) Durability of data
+e) Scale with increasing load
+
+3) APIs
+Login
+Logoff
+
+getMap(apiKey, userLocation, mapResolution, mapType)
+getLocation(apiKey, address) --> returns lat/long of location
+getTravelPathWithEta(apiKey, startLocation, endLocation) --> returns path and eta
+
+requestTrip(userToken, startLocation, endLocation)
+getTripRequest(userToken)
+acceptTrip(userToken, tripId)
+cancelTrip(userToken, tripId)
+completeTrip(userToken, tripId)
+getTripStatus(userToken, tripId)
+getTripsInformation(userToken, pagesize, prevPagePtr)
+
+updateLocation(userToken, currentLocation, optional tripId)
+
+rateUser(userToken, userId, rating)
+
+4) Services
+Map (provide maps to driver and passengers, ETA calculations, path calculations)
+Routing
+User (passenger and driver info)
+Analytics
+Driver Location (keep track of drivers)
+Trip
+Billing
+
+5) Map Service
+Raster maps (satellite images)
+Vector maps (road maps)
+graph database backend or graph of nodes and weighted edges to represent cities.  May have to precalculate grids of the map in chunks in order to make it fast enough.  Cities have too many intersections.
+
+6) Driver Location Service
+used to keep track of current location and status of the driver.  Used by trip service to determine nearby drivers.  No datastore involved, just distributed in-memory cache because keeps track of current position of drivers which is transient.  Need distributed cache for both grids and drivers.  When driver updates his location, if current gridId matches the updated gridId, just update position.  Else, previousGridId equals currentGridId and currentGridId equals updatedGridId and the driver needs to be removed from the current gridId in the distributed cache and put into the updated gridId and update position.
+divide map of the city into small grids.  In the cache the key is a gridid (lat/long) and the value is all the drivers in that grid.
+approach 1: partition by hash of grid.  Nearby grids could be in different parititions.
+approach 2: partition by key-range values of grid ids.  Nearby grids could be in single partition.
+approach 3: could also partition by city first and then the above approaches
+
+PK DriverID integer
+currentGridId: string
+prevGridId: string
+position: string --> lat/long
+
+7) Trip Service
+Dispatch - when it receives request from passenger for a trip.  Call driver location service to get a list of all nearby drivers.  Rank by distance and driver rating.  Send the trip request to top two or three drivers in parallel.  When a driver accepts the trip, it will assign the driver to the trip and pass to the recorder service.  This gives a local optimal solution and it may be worth considering a dynamic programming solution that is better for the overall system.
+Recorder - get trip info from driver and passenger apps and stores time series location information in the data store
+History - provide previous trip information to driver and passenger
+
+approach 1) partition by document - local index - trip id --> secondary index is distributed across all the partitions.  Every partition will only store information about secondary indexes belonging to trips on that partition.  Have to run a scatter/gather to query all the partitions for trips for that driver.  Writes are very fast because we update a trip in one partition and the secondary index in the same partition.
+approach 2) partition by term - global index - driver ids/passenger ids --> partition secondary indexes based on driverIds or passengerIds.  All information for a driver stored on one partition.  Reads are very fast because we only read one partition.
+
+Trips:
+PL TripId: integer
+SK DriverId: integer
+SK PassengerId: integer
+startTime: datetime
+endTime: dateTime
+status: string
+price: float
+currency: string
+
+Trip_Time_series:
+PK TripId: integer
+PK CreateTime: datetime
+Position: string --> lat/long
+
+
+6) Schemas
+PK userId: integer
+name: string
+email: string
+creationTime: string
+lastLogin: string
+ranking: float
+userType: string
+
+
+7) Routing Http Polling vs Websocket
+1) Polling approach - 
+

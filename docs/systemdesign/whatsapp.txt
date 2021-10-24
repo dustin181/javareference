@@ -1,0 +1,87 @@
+1) Functional Requirements
+a) send and receive chats to contacts
+b) group chat up to 255 users
+c) Track message status
+d) Register Account using phone number
+e) Push notifications
+f) receive messages when comes online
+g) analytics/monitoring
+h) end to end encryption
+i) Media file support
+
+2) Nonfunctional requirements
+a) Highly Available
+b) Fault Tolerant
+c) Scalable
+d) Durable
+e) Minimal Latency
+f) Consistency: Eventual?
+
+3) APIs
+a)registerAccount(ApiKey, userinfo)
+b)validateAccount(ApiKey, userId, validationCode)
+c)initiateDirectChatSession(APIKey, userid, userid2, handshakeInfo) -> return SessionId
+d)sendMessage(ApiKey, sessionId, messageType, message)
+e)readNewMessage(ApiKey, sessionId, msgId)
+
+f)initiateGroupChatSession(ApiKey, groupInfo) -> groupSessionId
+g)addUserToGroup(ApiKey, userId, groupId)
+h)removeUserFromGroup(ApiKey, userId, groupId)
+i)promoteUserToAdmin(ApiKey, userId, groupId)
+
+4) Schemas
+
+
+
+User_registration:
+PK user_id: integer
+name: varchar(100)
+...
+validation_code: integer
+creation_time: timestamp
+
+both sharded by groupid so it will be in a single partition with fast lookup
+
+Group:
+PK group_id: varchar(64)
+name: varchar(100)
+createTime: dateTime
+memberCount: integer
+
+Group_Membership
+PK: GroupId: varchar(64)
+SK userID: varchar(32)
+creationTime: datetime
+type: varchar(10)
+
+*****
+
+private messages
+group messages
+
+sharded by sessionId so all info about session will be in a single partition
+
+Session:
+PK sessionId: varchar(64)
+createTime: datetime
+type: varchar(10)
+
+Session_Message:
+PK sessionId: varchar(64)
+timestamp: long
+createTime: dateTime
+type: varchar(10)
+senderId: varchar(32)
+recipientId: varchar(32)
+data: varchar(160)
+
+
+Services:
+
+Routing Service/API Gateway
+Groups Service
+Sessions Service
+Fanout Service
+User Service
+User Registration Service
+Push Notification Service
