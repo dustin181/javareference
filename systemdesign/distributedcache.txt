@@ -1,0 +1,44 @@
+1) Functional Requirements
+a) insert key value (write)
+b) get value from cache if key provided (read)
+c) invalidate or delete record from cache
+d) Read/Write Policy (LRU)
+e) Cache Eviction Policy (Cache Aside)
+
+2) Nonfunctional Requirements
+a) Highly Available
+b) Minimal Latency
+c) Scalable
+d) Consistentcy - Strong
+
+3) Read/Write Policies
+a) Cache Aside - write directly to datastore.  On read, app server checks cache.  If empty, return not found.  Then check datastore and return information from datastore.  App server calls cache again and stores info in cache and then returns to user.  Only used if data in cache is not getting updated.
+b) Read Through - write directly to datastore.  On read, app server calls cache.  If empty, the cache itself calls datastore to fetch data.  Cache populates itself and then returns data to the app server which returns to user.  Only used if data in cache is not getting updated.
+c) Write Through - write to cache first and then cache updates datastore.  Only when the data is persisted in the datastore does the cache return data to app server.
+d) Write Back/Behind - write to cache and return quickly.  Then write to datastore happens asynchronously and periodically.  There is a risk of data loss if cache server crashes before it writes.  Maintains eventual consistency.
+
+4) Cache Eviction Policies
+a) Least Recently Used
+b) Least Frequently Used.  Might need a time based component otherwise records which just entered the cache will always be evicted.
+c) Most Frequently Used
+
+5) Hash table Implementation for LRU
+a) hash table points to double linked list.  On write, insert node at head of double linked list and insert pointer to that node in the hash table against the key.  If cache is at capacity and key is in list, remove key from linked list and add it back to insert it at the head at the list.  if key is not in the list, remove last entry in linked list and then remove from hash map and add new key to the hash table and linked list.
+
+6) Partitioning
+approach 1) introduce exact replica servers of original server that store same copy of key-value data.
+approach 2) Divide key range into equal partitions, where each partition is stored on a separate server.  If partitioned by key-range, then it may not be equal distribution.  Better to partition by hash of the key.
+approach 3) combine the two for maximum effect.  Multiple replicas in a partition.
+
+7) Replicas
+a) Single Master/Leader - one primary replica and all writes go to it.  Primary replica determines how to copy data to other replicas.
+b) Multi Master/Leader - Could be two or more masters and writes can go to any of them.  Master nodes determine how to copy data to other replicas.
+c) Leaderless - Writes can go to any node in the partition.
+
+you can copy from primary to secondary asynchronously if data is only inserted and never updated.  Secondary is in standby mode unless the primary dies because it would be lagging behind the primary.
+
+R + W > N
+
+R = number of replicas from which we have to read the data to mark it as successful
+W = number of replicas to which we have to write the data to mark it as successful
+N = total number of replicas
