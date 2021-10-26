@@ -1,0 +1,69 @@
+1) Functional Requirements:
+a) user can login and logout of account
+b) user can follow and unfollow another user or group
+c) user can see activity of users and groups that he is following on his newsfeed
+d) user can like/unlike post
+e) feed may contain images, text or video
+f) new posts should be appended as they arrive
+
+2) Nonfunctional Requirements
+a) Highly available
+b) Fault tolerant
+c) Minimal latency (2s maximum)
+d) Scalable
+e) Eventual consistency
+
+3) APIs
+getUserFeed(api_key, user_id, since_id, count) --> returns JSON consisting list of feed items
+
+4) Database Design
+a) Three primary objects: User, Entity and Post:
+b) A User can follow other Entities
+c) Both users and entity can make a post containing text, images or videos
+
+Schemas:
+
+User:
+PK userId: integer
+name: varchar
+email: varchar
+dateOfBirth: datetime
+creationDate: datetime
+lastLogin: datetime
+
+Entity:
+PK entityID: integer
+type: varchar
+description: varchar:
+creationDate: datetime
+category: integer
+phone: varchar
+email: varchar
+
+UserFollow:
+PK UserID: int
+PK EntityOrFriendId: int
+Type: varchar
+
+Post:
+PK postId: integer
+userId: integer
+contents: varchar
+entityId: integer
+locationLatitude: integer
+locationLongitude: integer
+creationDate: dateTime
+numLikes: integer
+
+FeedMedia:
+PK feedItemId: integer
+PK mediaId: integer
+
+PK MediaID: integer
+type: varchar
+description: varchar
+path: varchar
+latitude: integer
+longitude: integer
+creationDate: dateTime
+
